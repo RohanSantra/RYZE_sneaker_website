@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryze</title>
+
+    <!-- Links for styles -->
+    <link rel="stylesheet" href="../../assets/css/checkout_header.css">
+    <link rel="stylesheet" href="../../assets/css/shipping.css">
+    <link rel="stylesheet" href="../../assets/css/payment_section.css">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="left-section">
+            <a class="header-link" href="../Ryze.html">
+                <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
+            </a>
+        </div>
+
+        <div class="navigation-indicator">
+            <ul>
+                <li class="active">Shopping Cart</li>
+                <span class="active">&RightArrow;</span>
+                <li class="active">Shipping</li>
+                <span>&RightArrow;</span>
+                <li>Payment</li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <a class="cart-link" href="Checkout.html">
+                <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
+                <div class="cart-quantity">0</div>
+            </a>
+        </div>
+    </header>
+
+    <!-- main section -->
+    <main class="main">
+        <div class="navigation-indicator">
+            <ul>
+                <li class="active">Shopping Cart</li>
+                <span class="active">&RightArrow;</span>
+                <li class="active">Shipping</li>
+                <span>&RightArrow;</span>
+                <li>Payment</li>
+            </ul>
+        </div>
+        <div class="checkout-grid">
+            <div class="address-grid">
+                <form class="contact-summary">
+                    <h1>Contacts</h1>
+                    <div class="contact-container">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="tel" placeholder="Phone" pattern="[0-9]{10}" required>
+                    </div>
+                    <h1>Shipping Address</h1>
+                    <div class="Shipping-container">
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="City" required>
+                        <input type="number" placeholder="Postal Code" required>
+                        <input type="text" placeholder="Address" required>
+                    </div>
+                    <div class="shipping-charges">
+                        <div class="charges-1">
+                            <input type="radio" name="shipping" value="0" checked class="shipping-option">
+                            <span>STANDARD SHIPPING</span>
+                            <span>4-5 days</span>
+                            <span>FREE</span>
+                        </div>
+                        <div class="charges-2">
+                            <input type="radio" name="shipping" value="100" class="shipping-option">
+                            <span>STANDARD SHIPPING</span>
+                            <span>1-3 days</span>
+                            <span>&#8377;100</span>
+                        </div>
+                        <!-- <input type="submit" value="Continue to payment" class="payment-btn"> -->
+                    </div>
+                </form>
+                <!-- <div class="navigation-link">
+                    <a href="#">Back to shopping cart</a>
+                </div> -->
+            </div>
+
+            <!-- payment section -->
+            <div class="payment-section">
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <h1>Your order</h1>
+                        <a href="Checkout.html">Edit cart</a>
+                    </div>
+                    <!-- product summary -->
+                    <div class="summary-row">
+                        <!-- Product 1 -->
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="../../assets/images/products_bg/Ballet Breeze W.jpg" alt="Ballet Breeze">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ballet Breeze</div>
+                                <div class="product-size-quantity-container">
+                                    <span>Size : UK 8</span>
+                                    <span>Quantity : 1</span>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;2999
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-row">
+                        <!-- Product 2 -->
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="../../assets/images/products_bg/SkyWave Kicks K.jpg" alt="Ballet Breeze">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">SkyWave Kicks</div>
+                                <div class="product-size-quantity-container">
+                                    <span>Size : UK 4</span>
+                                    <span>Quantity : 1</span>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;3999
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-row">
+                        <!-- Product 3 -->
+                        <div class="product">
+                            <div class="product-image">
+                                <img src="../../assets/images/products_bg/Skyline Sprint M.jpg" alt="Ballet Breeze">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Skyline Sprint</div>
+                                <div class="product-size-quantity-container">
+                                    <span>Size : UK 10</span>
+                                    <span>Quantity : 1</span>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;2599
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- amount summary -->
+                    <div class="summary-row line">
+                        <div>Subtotal:</div>
+                        <div class="summary-amount">&#8377;9597.00</div>
+                    </div>
+                    <div class="summary-row">
+                        <div>Shipping:</div>
+                        <div class="summary-amount">&#8377;0.00</div>
+                    </div>
+                    <div class="summary-row line">
+                        <div>Total:</div>
+                        <div class="summary-amount">&#8377;9597.00</div>
+                    </div>
+                    <a href="Payment.html" class="checkout-link">
+                            Continue to payment
+                    </a>
+                    <div class="navigation-link">
+                        <a href="Checkout.html">Back to shopping cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Links for script -->
+    <script src="../../scripts/header.js" type="module"></script>
+</body>
+
+</html>

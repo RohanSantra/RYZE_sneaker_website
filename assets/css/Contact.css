@@ -1,0 +1,228 @@
+body{
+    background-color: #242C2C;
+}
+.contact {
+    margin-top: 60px;
+}
+
+.contact-container {
+    display: flex;
+    background-color: #242C2C;
+    height: 100%;
+    position: relative;
+}
+.contact-image img {
+    height: 700px;
+}
+
+.contact-image span:nth-child(1) ,
+.contact-image span:nth-child(2){
+    position: absolute;
+    left: 50px;
+    color: #242C2C;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.contact-image span:nth-child(1) {
+    top: 50px;
+}
+.contact-image span:nth-child(2){
+    top: 100px;
+    font-weight: 700;
+}
+
+.contact-form {
+    background-color: white;
+    width: 650px;
+    margin: 20px 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-form h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #242C2C;
+}
+
+#name,
+#email,
+#message,
+#phone {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #242C2C;
+    width: 90%;
+    height: 40px;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #242C2C;
+}
+
+.upload-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-form i {
+    color: #242C2C;
+    font-size: 2rem;
+}
+
+.contact-form label {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    color: #242C2C;
+    font-weight: 500;
+
+}
+
+#upload {
+    font-weight: 500;
+    color: #242C2C;
+    text-transform: capitalize;
+    font-size: 1rem;
+    /* display: none; */
+}
+
+::file-selector-button {
+    display: none;
+}
+
+#name::placeholder,
+#email::placeholder,
+#message::placeholder,
+#phone::placeholder {
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #242C2C;
+}
+
+.contact-form button {
+    width: 90%;
+    background-color: #242C2C;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 2px solid #242C2C;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: white;
+    color: #242C2C;
+}
+
+@media (max-width: 1024px) {
+    .contact-container {
+        position: none;
+    }
+
+    .contact-image {
+        position: relative;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-form {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #name,
+    #email,
+    #message,
+    #phone {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .upload-section {
+        align-items: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-form button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-image span:nth-child(1) {
+        top: 20px;
+    }
+
+    .contact-image span:nth-child(2) {
+        font-size: 2rem;
+        top: 80px;
+    }
+
+    #name,
+    #email,
+    #message,
+    #phone {
+        font-size: 0.9rem;
+    }
+
+    .upload-section {
+        gap: 10px;
+    }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+    .contact-image span:nth-child(1) {
+        font-size: 0.8rem;
+        left: 20px;
+    }
+
+    .contact-image span:nth-child(2) {
+        font-size: 1rem;
+        top: 50px;
+        left: 20px;
+    }
+    .contact-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    #name,
+    #email,
+    #message,
+    #phone {
+        font-size: 0.8rem;
+    }
+
+    .contact-form button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}

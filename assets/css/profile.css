@@ -1,0 +1,229 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+    font-family: BubblegumSans;
+    src: url('../../fonts/Bubblegum_Sans/BubblegumSans-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    color: #242C2C;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #c4c4c4;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #242C2C;
+    border-radius: 0px 0px 100px 100px;
+
+}
+
+/* Navigation */
+.navigator {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.navigator a {
+    color: #242C2C;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navigator a span {
+    transition: .3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.navigator a:hover span {
+    border-bottom: 2px solid #242C2C;
+}
+
+/* Profile Section */
+.profile-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 30px;
+}
+
+/* Profile Container (Two-column layout) */
+.profile-container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.profile-container .profile-text {
+    color: #242C2C;
+    text-transform: uppercase;
+    position: absolute;
+    padding: 30px;
+}
+
+
+/* Sidebar */
+.profile-sidebar {
+    display: grid;
+    place-content: center;
+    flex: 1;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    text-align: center;
+}
+
+.profile-img img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 10px;
+}
+
+.profile-sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: Roboto;
+}
+
+.profile-sidebar p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #242C2C;
+}
+
+/* Profile Actions */
+.profile-actions {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-actions a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+    justify-content: center;
+}
+
+.edit-btn {
+    text-transform: uppercase;
+    border: 2px dashed #4CAF50;
+    color: #4CAF50;
+}
+
+.edit-btn:hover {
+    border: 2px solid #4CAF50;
+    background: #43A047;
+    color: white;
+}
+
+.logout-btn {
+    text-transform: uppercase;
+    background: #f44336;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: #d32f2f;
+}
+
+/* Profile Details */
+.profile-details {
+    flex: 2;
+    padding: 30px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.info-box h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #242C2C;
+    padding-bottom: 5px;
+}
+
+.info-box p {
+    font-size: 1rem;
+    margin: 7px 0;
+    color: #242C2C;
+}
+
+/* Responsive */
+@media (max-width:1000px) {
+    .profile-img img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navigator{
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .profile-section{
+        padding: 0;
+    }
+    .profile-container {
+        box-shadow: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-container .profile-text{
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.05);
+        position: relative;
+    }
+    .profile-sidebar {
+        padding-bottom: 20px;
+    }
+
+    .profile-details {
+        padding: 20px;
+    }
+}

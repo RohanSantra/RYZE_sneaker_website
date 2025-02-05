@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #c4c4c4;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #242C2C;
+    border-radius: 0px 0px 100px 100px;
+
+}
+
+.header-section {
+    width: 100dvw;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 800;
+    background-color: white;
+    transition: top 0.3s ease-in-out;
+}
+
+.header-hidden {
+    top: -100px;
+}
+
+.left-section {
+    margin-left: 3.2%;
+    width: 120px;
+    display: grid;
+    place-content: center;
+    z-index: 1000;
+}
+
+.header-link {
+    text-decoration: none;
+    height: 100%;
+}
+
+.ryze-logo {
+    width: 100%;
+}
+
+.header-section .navigation-indicator {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-indicator ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.navigation-indicator span {
+    font-size: 2rem;
+    transform: translateY(-3px);
+    color: #8A8886;
+}
+
+.navigation-indicator li {
+    text-transform: uppercase;
+    list-style: none;
+    color: #8A8886;
+}
+
+.navigation-indicator .active {
+    color: #242C2C;
+}
+
+.right-section {
+    margin-right: 20px;
+    margin-right: 5%
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cart-icon {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(4%) saturate(748%) hue-rotate(164deg) brightness(93%) contrast(91%);
+    width: 50px;
+}
+
+
+.cart-quantity {
+    position: absolute;
+    top: -10px;
+    left: 25px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #242C2C;
+}
+
+@media(max-width:768px) {
+    .left-section {
+        width: 120px;
+    }
+
+    .header-section .navigation-indicator {
+        display: none;
+    }
+}
+
+@media(max-width:425px) {
+    .navigation-indicator ul {
+        gap: 10px;
+        font-size: .8rem;
+    }
+
+    .navigation-indicator span {
+        font-size: .8rem;
+        transform: translateY(-1.5px);
+    }
+}

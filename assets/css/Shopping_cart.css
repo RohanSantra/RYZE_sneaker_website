@@ -1,0 +1,268 @@
+.main {
+    width: 90%;
+    margin: auto;
+    padding-top: 150px;
+    animation: fade .5s ease-in;
+    padding-bottom: 150px;
+}
+
+@keyframes fade {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+        /* filter: blur(33px); */
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        /* filter: blur(0px); */
+    }
+}
+
+.main .navigation-indicator {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .main {
+        padding-top: 75px;
+    }
+
+    .main .navigation-indicator {
+        display: block;
+        margin-bottom: 30px;
+    }
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    
+}
+
+@media (max-width:1024px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checkout-grid h1 {
+    color: #242C2C;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.order-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product {
+    padding: 20px 0px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-top: 2px solid #242C2C;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.product-info .product-name {
+    font-weight: 500;
+    color: #242C2C;
+}
+
+.product-size-quantity-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-size {
+    padding: 8px;
+    color: #242C2C;
+    border: 2px solid #242C2C;
+    font-weight: 600;
+    border-radius: 10px;
+    outline: none;
+}
+
+.product-size option {
+    color: #242C2C;
+    font-weight: 600;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.product-quantity {
+    display: flex;
+}
+
+.product-quantity .increment,
+.decrement {
+    padding: 8px 10px;
+    background-color: #242C2C;
+    color: white;
+    border: 2px solid #242C2C;
+    font-weight: 700;
+}
+
+.decrement {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.increment {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+input[type=number] {
+    outline: none;
+    padding: 8px 10px;
+    text-align: center;
+    color: #242C2C;
+    border: 2px solid #242C2C;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #242C2C;
+}
+
+.remove-button .remove {
+    background-color: transparent;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #242C2C;
+}
+
+.remove-button .remove:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #242C2C;
+}
+
+@media (max-width:520px) {
+    .product-image {
+        height: 100px;
+        width: 100px;
+    }
+
+    .product-size-quantity-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-size {
+        padding: 5px;
+    }
+
+    .product-quantity .increment,
+    .decrement,
+    input[type=number] {
+        padding: 5px;
+    }
+
+    .product-price {
+        font-size: 1rem;
+    }
+}
+
+
+/* .payment-section */
+.payment-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-summary {
+    padding-top: 30px;
+    border-top: 2px solid #242C2C;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-row:nth-child(3) {
+    border-top: 2px solid #242C2C;
+    padding-top: 30px;
+}
+
+.summary-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.summary-row:nth-child(2) .summary-amount {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #444;
+}
+
+.checkout-link {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: grid;
+    place-content: center;
+    font-size: 1.2rem;
+    background-color: #242C2C;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.checkout-link:hover {
+    background-color: #444;
+}
+
+.navigation-link {
+    margin-top: 43px;
+}
+
+.navigation-link a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1rem;
+}
+
+.navigation-link a:hover {
+    border-bottom: 2px solid #007BFF;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryze</title>
+
+    <!-- Links for styles -->
+    <link rel="stylesheet" href="../../assets/css/checkout_header.css">
+    <link rel="stylesheet" href="../../assets/css/Shopping_cart.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="left-section">
+            <a class="header-link" href="../Ryze.html">
+                <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
+            </a>
+        </div>
+
+        <div class="navigation-indicator">
+            <ul>
+                <li class="active">Shopping Cart</li>
+                <span>&RightArrow;</span>
+                <li>Shipping</li>
+                <span>&RightArrow;</span>
+                <li>Payment</li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <a class="cart-link" href="Checkout.html">
+                <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
+                <div class="cart-quantity">0</div>
+            </a>
+        </div>
+    </header>
+
+    <!-- main section -->
+    <main class="main">
+        <div class="navigation-indicator">
+            <ul>
+                <li class="active">Shopping Cart</li>
+                <span>&RightArrow;</span>
+                <li>Shipping</li>
+                <span>&RightArrow;</span>
+                <li>Payment</li>
+            </ul>
+        </div>
+        <div class="checkout-grid">
+            <!-- Order Section -->
+            <div class="order-section">
+                <h1>Shopping Cart</h1>
+                <div class="order-summary">
+                    <!-- Product 1 -->
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="../../assets/images/products_bg/Ballet Breeze W.jpg" alt="Ballet Breeze">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Ballet Breeze</div>
+                            <div class="product-size-quantity-container">
+                                <select class="product-size">
+                                    <option value="6 UK" selected>6 UK</option>
+                                    <option value="7 UK">7 UK</option>
+                                    <option value="8 UK">8 UK</option>
+                                    <option value="9 UK">9 UK</option>
+                                    <option value="10 UK">10 UK</option>
+                                    <option value="11 UK">11 UK</option>
+                                    <option value="12 UK">12 UK</option>
+                                </select>
+                                <div class="product-quantity">
+                                    <button class="decrement">-</button>
+                                    <input type="number" min="1" max="5" value="1">
+                                    <button class="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;2999
+                            </div>
+                        </div>
+                        <div class="remove-button">
+                            <button class="remove">Remove</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="../../assets/images/products_bg/SkyWave Kicks K.jpg" alt="SkyWave Kicks">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">SkyWave Kicks</div>
+                            <div class="product-size-quantity-container">
+                                <select class="product-size">
+                                    <option value="6 UK" selected>6 UK</option>
+                                    <option value="7 UK">7 UK</option>
+                                    <option value="8 UK">8 UK</option>
+                                    <option value="9 UK">9 UK</option>
+                                    <option value="10 UK">10 UK</option>
+                                    <option value="11 UK">11 UK</option>
+                                    <option value="12 UK">12 UK</option>
+                                </select>
+                                <div class="product-quantity">
+                                    <button class="decrement">-</button>
+                                    <input type="number" min="1" max="5" value="1">
+                                    <button class="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;2999
+                            </div>
+                        </div>
+                        <div class="remove-button">
+                            <button class="remove">Remove</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="../../assets/images/products_bg/Skyline Sprint M.jpg" alt="SkyWave Kicks">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Skyline Sprint</div>
+                            <div class="product-size-quantity-container">
+                                <select class="product-size">
+                                    <option value="6 UK" selected>6 UK</option>
+                                    <option value="7 UK">7 UK</option>
+                                    <option value="8 UK">8 UK</option>
+                                    <option value="9 UK">9 UK</option>
+                                    <option value="10 UK">10 UK</option>
+                                    <option value="11 UK">11 UK</option>
+                                    <option value="12 UK">12 UK</option>
+                                </select>
+                                <div class="product-quantity">
+                                    <button class="decrement">-</button>
+                                    <input type="number" min="1" max="5" value="1">
+                                    <button class="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                &#8377;2999
+                            </div>
+                        </div>
+                        <div class="remove-button">
+                            <button class="remove">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <h1>Total</h1>
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <div>Subtotal:</div>
+                        <div class="summary-amount">&#8377;5999</div>
+                    </div>
+                    <div class="summary-row">
+                        <div>Shipping:</div>
+                        <div class="summary-amount">Calculated at checkout</div>
+                    </div>
+                    <div class="summary-row">
+                        <div>Total:</div>
+                        <div class="summary-amount">&#8377;5999</div>
+                    </div>
+                    <a href="Shipping.html" class="checkout-link">
+                        Checkout now
+                    </a>
+                    <div class="navigation-link">
+                        <a href="../Products.html">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Links for script -->
+    <script src="../../scripts/header.js" type="module"></script>
+</body>
+
+</html>
