@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.policy-section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: relative;
+    left: 0;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+.sidebar h1{
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #242c2c;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 25px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #242c2c;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #555;
+}
+
+/* Content Area */
+.policy-container {
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    flex: 1;
+    margin-left: 50px;
+}
+.policy-container::-webkit-scrollbar {
+    display: none;
+}
+
+.policy-item {
+    width: 90%;
+    box-shadow: rgba(36, 44, 44, 0.2) 0 2px 8px;
+    border: 2px solid #242c2c;
+    padding: 35px 50px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.policy-item:hover {
+    box-shadow: rgba(36, 44, 44, 0.3) 0 4px 12px;
+    border-color: #555;
+}
+
+.policy-item h2 {
+    font-weight: bold;
+    color: #242c2c;
+    margin-bottom: 15px;
+}
+
+.policy-item p {
+    text-align: justify;
+    color: #555;
+    font-size: 1rem;
+}
+.policy-item p:nth-of-type(1){
+    padding-top: 20px;
+    border-top: 2px solid #242c2c;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        text-align: center;
+        position: static;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .policy-section {
+        flex-direction: column;
+    }
+
+    .policy-container {
+        margin: 0 auto;
+    }
+
+    .policy-item {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .policy-item h2 {
+        font-size: 1.2rem;
+    }
+
+    .policy-item p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .policy-item h2 {
+        font-size: 1rem;
+    }
+
+    .policy-item p {
+        font-size: 0.9rem;
+    }
+}

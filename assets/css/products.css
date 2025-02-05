@@ -1,0 +1,359 @@
+.main {
+    padding-top: 60px;
+    width: 90vw;
+    margin: auto;
+}
+
+.main>h1 {
+    color: #242C2C;
+    font-weight: 1000;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.hero-main h1 {
+    text-align: center;
+}
+
+.main .subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.products-main .category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.products-main .category h1 {
+    color: #242C2C;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.products-main .line-spacer {
+    width: 100%;
+    height: 3px;
+    background-color: #242C2C;
+    margin-bottom: 20px;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 2000px) {
+    .products-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* This @media means when the screen width is 1600px or
+     less, we will divide the grid into 6 columns. */
+@media (max-width: 1600px) {
+    .products-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1300px) {
+    .products-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.product {
+    padding: 25px 0px;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    gap: 0px;
+    border-radius: 10px;
+    box-shadow: rgb(36, 44, 44, 0.5) 0px 2px 8px 0px;
+    transition: .3s ease;
+    background-color: white;
+    cursor: pointer;
+}
+
+.product:hover {
+    box-shadow: #242C2C 0px 20px 30px -10px;
+}
+
+.product-category {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+.product-category span:first-child {
+    font-weight: bold;
+}
+
+.Men {
+    color: #3A8D99;
+}
+
+.Women {
+    color: #F76C6C;
+}
+
+.Kids {
+    color: #F8C24A;
+}
+
+/* Male category */
+/* .product-category span:nth-child(2) {
+    color: #3A8D99;
+}
+
+.product-category.male:hover {
+    background-color: #1C5B6C; 
+}*/
+
+/* Female category */
+/* .product-category .female {
+    background-color: #F76C6C; 
+    color: white;
+}
+
+.product-category .female:hover {
+    background-color: #C94B4B; 
+} */
+
+/* Kids category */
+/* .product-category .kids {
+    background-color: #F8C24A; 
+    color: white;
+}
+
+.product-category .kids:hover {
+    background-color: #F4A300; 
+}  */
+
+.product-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    height: 90%;
+
+}
+
+.product-image {
+    object-fit: inherit;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.product-name {
+    color: #242C2C;
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+    margin-left: 5%;
+}
+
+@media(max-width:769px) {
+    .product-name {
+        font-size: 1.3rem;
+    }
+}
+
+/* .product-rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+.product-rating-stars {
+    width: 100px;
+    margin-right: 6px;
+}
+
+.product-rating-count {
+    color: rgb(1, 124, 182);
+    cursor: pointer;
+    margin-top: 3px;
+} */
+
+.product-price {
+    color: #242C2C;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+.product-size-quantiy-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 17px;
+}
+
+.product-size-container select,
+.products-main .category select {
+    padding: 8px;
+    color: #242C2C;
+    border: 2px solid #242C2C;
+    font-weight: 700;
+    border-radius: 10px;
+    outline: none;
+
+}
+
+.product-size-container select {
+    margin-right: 30px;
+}
+
+.product-size-container select option,
+.products-main .category select option {
+    color: #242C2C;
+    font-weight: 700;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.product-quantity-container {
+    display: flex;
+}
+
+.product-quantity-container .add-number,
+.minus-number {
+    padding: 8px 10px;
+    background-color: #242C2C;
+    color: white;
+    border: 2px solid #242C2C;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-number {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.minus-number {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+input[type=number] {
+    outline: none;
+    padding: 8px 10px;
+    text-align: center;
+    color: #242C2C;
+    border: 2px solid #242C2C;
+}
+
+.add-to-cart-button {
+    background-color: #242C2C;
+    color: white;
+    border: 2px solid #242C2C;
+    width: 90%;
+    margin: auto;
+    padding: 8px;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: white;
+    color: #242C2C;
+}
+
+@media (max-width:575px) {
+    .product:hover {
+        box-shadow: rgb(36, 44, 44, 0.5) 0px 2px 8px 0px;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Two products per row */
+        gap: 20px;
+        /* Adjust spacing for smaller screens */
+    }
+
+    .main>h1,
+    .products-main .category h1 {
+        font-size: 1.2rem;
+    }
+
+    .products-main .category select {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .product-name {
+        font-size: 1.2rem;
+    }
+
+    .product-price {
+        font-size: 1rem;
+    }
+
+    .product-rating-container {
+        width: 80px;
+        height: 20px;
+    }
+
+    .product-rating-container img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .product-size-quantiy-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .product-size-container select {
+        margin-right: 3px;
+        padding: 6px 9px;
+    }
+
+    .product-quantity-container .add-number,
+    .minus-number {
+        padding: 5px;
+    }
+
+    input[type=number] {
+        padding: 5px;
+    }
+}
