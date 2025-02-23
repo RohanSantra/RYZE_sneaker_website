@@ -65,22 +65,26 @@ export function dropdown() {
     const userDropdown = document.querySelector(".user-dropdown");
     const dropdownMenu = document.querySelector(".dropdown-menu");
 
-    window.addEventListener('scroll', () => {
-       if(dropdown){
+    if (dropdown && userDropdown) {
+        window.addEventListener('scroll', () => {
+            if (dropdown) {
+                dropdownMenu.style.display = "none";
+            }
+        });
+        // Toggle dropdown on click
+        userDropdown.addEventListener("click", (event) => {
+            event.stopPropagation(); // Prevent event from propagating to document
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+
+        // Close the dropdown if clicked outside
+        document.addEventListener("click", () => {
             dropdownMenu.style.display = "none";
-        }
-    });
+        });
+    }
 
-    // Toggle dropdown on click
-    userDropdown.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent event from propagating to document
-        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-    });
 
-    // Close the dropdown if clicked outside
-    document.addEventListener("click", () => {
-        dropdownMenu.style.display = "none";
-    });
+
 }
 function redirectionToLoginSignUpPage() {
 

@@ -37,7 +37,7 @@ require_once __DIR__ . "../../includes/init.php";
                 </div>
                 <div class="input-box">
                     <input type="password" placeholder="Password" name="Password" id="password" required>
-                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-lock toggle-password-btn"  data-target="password"></i>
                 </div>
                 <div class="error-message">
                     <?php
@@ -78,7 +78,7 @@ require_once __DIR__ . "../../includes/init.php";
                 </div>
                 <div class="input-box">
                     <input type="password" placeholder="Password" name="Password" id="signup-password" required>
-                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-lock toggle-password-btn" data-target="signup-password"></i>
                 </div>
                 <div class="error-message">
                     <?php

@@ -43,3 +43,24 @@ loginbtn.addEventListener('click', (event) => {
     container.classList.remove('active');
     setActiveState(false); // Save state to localStorage
 });
+
+function togglePassword(passwordFieldId, toggleButton) {
+    const passwordField = document.getElementById(passwordFieldId);
+
+    // Toggle the password visibility on button click
+    toggleButton.addEventListener('click', function() {
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+}
+
+// Get the buttons and attach the toggle function to each password field
+document.querySelectorAll('.toggle-password-btn').forEach(button => {
+    const passwordFieldId = button.getAttribute('data-target');
+    togglePassword(passwordFieldId, button);
+});
+
+

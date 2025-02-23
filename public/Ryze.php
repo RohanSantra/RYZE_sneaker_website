@@ -180,7 +180,7 @@ include("../includes/config.php");
 
                     <div class="product-size-quantiy-container">
                         <div class="product-size-container">
-                            <select>
+                            <select class="product-size">
                                 <?php
                                 // Generate sizes based on category
                                 $sizes = [];
@@ -204,7 +204,7 @@ include("../includes/config.php");
                             <button class="add-number">&plus;</button>
                         </div>
                     </div>
-                    <button class="add-to-cart-button">
+                    <button class="add-to-cart-button" data-product-id="<?php echo htmlspecialchars($product['product_id']) ?>">
                         <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                     </button>
                 </div>

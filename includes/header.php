@@ -1,18 +1,50 @@
 <?php
-
 require_once __DIR__ . "/init.php";
 
-$userID = $_SESSION['userID'];
+if ($is_logged_in){
+    $userID = $_SESSION['userID'];
+}
 
+
+
+// Query to get the user's profile image
 $user_query = $conn->prepare("SELECT image FROM users WHERE userID = ?");
 $user_query->bind_param("i", $userID);
 $user_query->execute();
 $user_result = $user_query->get_result();
 $user = $user_result->fetch_assoc();
 
+// Step 1: Get the user's cartID
+$cart_query = $conn->prepare("SELECT cartID FROM carts WHERE userID = ?");
+$cart_query->bind_param("i", $userID);
+$cart_query->execute();
+$cart_query->store_result();
 
+if ($cart_query->num_rows > 0) {
+    $cart_query->bind_result($cartID);
+    $cart_query->fetch();
+    $cart_query->close();
+
+    // Step 2: Get the total quantity of items in the cart
+    $cart_items_query = $conn->prepare("
+        SELECT SUM(quantity) AS total_quantity 
+        FROM cart_items 
+        WHERE cartID = ?
+    ");
+    $cart_items_query->bind_param("i", $cartID);
+    $cart_items_query->execute();
+    $cart_items_result = $cart_items_query->get_result();
+    $cart_data = $cart_items_result->fetch_assoc();
+    $cart_quantity = $cart_data['total_quantity'] ?? 0; // Default to 0 if no items
+    $cart_items_query->close();
+} else {
+    // If no cart exists, quantity is 0
+    $cart_quantity = 0;
+    $cart_query->close();
+}
 
 ?>
+
 <div class="header-section">
     <!-- Logo Section -->
     <div class="left-section">
@@ -60,11 +92,11 @@ $user = $user_result->fetch_assoc();
             <!-- navigate user to profile.php if user is logged in  -->
             <div class="user-navigation">
                 <a href="profile.php" class="navigator-link">
-                <?php
-                // Display profile image (default if none is set)
-                $profileImage = !empty($user['image']) ? "../assets/images/uploaded_img/{$user['image']}" : "../assets/images/icons/default-avatar.png";
-                echo '<img src="' . htmlspecialchars($profileImage) . '" alt="Profile Picture" class="user-img">';
-                ?>
+                    <?php
+                    // Display profile image (default if none is set)
+                    $profileImage = !empty($user['image']) ? "../assets/images/uploaded_img/{$user['image']}" : "../assets/images/icons/default-avatar.png";
+                    echo '<img src="' . htmlspecialchars($profileImage) . '" alt="Profile Picture" class="user-img">';
+                    ?>
                     <span>Hello, <?php echo htmlspecialchars($username); ?></span>
                 </a>
             </div>
@@ -100,9 +132,9 @@ $user = $user_result->fetch_assoc();
 
 
         <!-- Cart Section -->
-        <a class="cart-link" href="checkout/Checkout.html">
+        <a class="cart-link" href="checkout/Checkout.php">
             <img class="cart-icon" src="../assets/images/icons/cart-icon.png" alt="Cart Icon">
-            <div class="cart-quantity">0</div>
+            <div class="cart-quantity"><?php echo $cart_quantity; ?></div>
         </a>
 
         <!-- Hamburger open button for width < 768px -->
@@ -113,4 +145,3 @@ $user = $user_result->fetch_assoc();
         </svg>
     </div>
 </div>
-

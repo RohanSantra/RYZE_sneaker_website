@@ -80,12 +80,14 @@ include('../includes/init.php');
                   <div class="size-options">
                       <?php
                       $sizes = explode(",", $product['sizes']);
-                      foreach ($sizes as $size) {
-                          echo '<label class="size-option">
-                                  <input type="radio" name="size" value="' . htmlspecialchars($size) . ' UK">
-                                  <span class="size-label">UK ' . htmlspecialchars($size) . '</span>
+                      $first = true; // Initialize $first to true before the loop
+                        foreach ($sizes as $size) {
+                            echo '<label class="size-option">
+                                    <input type="radio" name="size-' . htmlspecialchars($product['product_id']) . '" value="UK ' . htmlspecialchars($size) . '" class="product-size" ' . ($first ? 'checked' : '') . '>
+                                    <span class="size-label">UK ' . htmlspecialchars($size) . '</span>
                                 </label>';
-                      }
+                            $first = false; // Set $first to false after the first iteration
+                        }
                       ?>
                   </div>
               </div>
@@ -101,7 +103,7 @@ include('../includes/init.php');
               </div>
 
               <!-- Add to Cart Button -->
-              <button class="add-to-cart">
+              <button class="add-to-cart-button" data-product-id="<?php echo $product['product_id'] ?>">
                   <i class="fa-solid fa-cart-shopping"></i> Add to Cart
               </button>
           </div>
@@ -116,7 +118,7 @@ include('../includes/init.php');
         <!-- product container -->
         <div class="products-container">
         <?php
-        $sql = "SELECT * FROM products WHERE category ='$product_category' ORDER BY rand() LIMIT 8";
+        $sql = "SELECT * FROM products WHERE category ='$product_category' /*ORDER BY rand()*/ LIMIT 8";
         $result = $conn->query($sql);
 
         // Check if products are found
@@ -143,7 +145,7 @@ include('../includes/init.php');
 
                       <div class="product-size-quantiy-container">
                           <div class="product-size-container">
-                              <select>
+                              <select class="product-size">
                                   <?php
                                   // Generate sizes based on category
                                   $sizes = [];
@@ -167,7 +169,7 @@ include('../includes/init.php');
                               <button class="add-number">&plus;</button>
                           </div>
                       </div>
-                      <button class="add-to-cart-button">
+                      <button class="add-to-cart-button" data-product-id="<?php echo htmlspecialchars($product['product_id']) ?>">
                           <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                       </button>
                   </div>
@@ -182,7 +184,7 @@ include('../includes/init.php');
 
   <!------------------- Links for script ---------------->
   <script type="module" src="../assets/js/header.js?v=<?= $version ?>"></script>
-  <script src="../assets/js/product.js?v=<?= $version ?>"></script>
+  <script type="module" src="../assets/js/product.js?v=<?= $version ?>"></script>
 
 </body>
 

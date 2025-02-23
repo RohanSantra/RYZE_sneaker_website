@@ -118,12 +118,21 @@ body::-webkit-scrollbar-thumb {
 
 @media(max-width:768px) {
     .left-section {
-        width: 120px;
+        width: 100px;
     }
 
     .header-section .navigation-indicator {
         display: none;
     }
+    .cart-icon {
+        width: 40px
+    }
+
+    .cart-quantity {
+        left: 19px;
+        font-size: .9rem;
+    }
+
 }
 
 @media(max-width:425px) {

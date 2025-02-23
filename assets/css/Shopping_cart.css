@@ -42,7 +42,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 30px;
-    
+
 }
 
 @media (max-width:1024px) {
@@ -160,18 +160,35 @@ input[type=number] {
     color: #242C2C;
 }
 
-.remove-button .remove {
+.product-manage-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-manage-buttons .remove,
+.update,
+.save {
     background-color: transparent;
     border: 2px solid transparent;
     text-transform: uppercase;
     font-weight: 500;
-    color: #242C2C;
+    cursor: pointer;
 }
 
-.remove-button .remove:hover {
-    cursor: pointer;
-    border-bottom: 2px solid #242C2C;
+.product-manage-buttons .update {
+    color: #F4A261;
 }
+
+.product-manage-buttons .remove {
+    color: #E63946;
+}
+
+.product-manage-buttons .save {
+    color: #2A9D8F;
+}
+
+
 
 @media (max-width:520px) {
     .product-image {
@@ -248,6 +265,7 @@ input[type=number] {
     border-radius: 4px;
     text-decoration: none;
 }
+
 .checkout-link:hover {
     background-color: #444;
 }

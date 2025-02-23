@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
 
                     <div class="product-size-quantiy-container">
                         <div class="product-size-container">
-                            <select>';
+                            <select class="product-size">';
         // Generate sizes based on category
         $sizes = [];
         if (strtolower($product['category']) === "men") {
@@ -79,7 +79,7 @@ if ($result->num_rows > 0) {
                             <button class="add-number">&plus;</button>
                         </div>
                     </div>
-                    <button class="add-to-cart-button">
+                    <button class="add-to-cart-button" data-product-id="'.htmlspecialchars($product['product_id']).'">
                         <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                     </button>
                 </div>';
