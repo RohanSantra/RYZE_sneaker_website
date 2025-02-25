@@ -1,16 +1,6 @@
 <?php
 include("../includes/config.php");  // Include database connection
 
-// Start session if not already started
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Check if user is logged in
-if (!isset($_SESSION['userID'])) {
-    die("User not logged in. Please log in to edit your profile.");
-}
-
 // Get user ID from session
 $userID = $_SESSION['userID'];
 

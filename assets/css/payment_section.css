@@ -3,6 +3,17 @@
     flex-direction: column;
 }
 
+@media (max-width:1024px) {
+    .payment-section{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 2px solid #242C2C;
+        border-radius: 10px;
+        padding: 40px 20px;
+        
+    }
+}
+
+
 .payment-summary {
     display: flex;
     flex-direction: column;
@@ -16,13 +27,18 @@
     margin-top: 30px;
 }
 .summary-row a{
-    margin-top: 10px;
     text-decoration: none;
-    color: #007BFF;
+    background-color: #E9C46A;
+    height: fit-content;
+    padding: 10px;
     text-transform: capitalize;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: background-color .2s;
 }
 .summary-row a:hover{
-    text-decoration: underline;
+    background-color: #eacf8c;
 
 }
 .summary-row .product {
@@ -65,11 +81,12 @@
     padding-top: 30px;
     padding-bottom: 20px;
 }
-.checkout-link {
+.payment-link {
     text-transform: uppercase;
     padding: 10px 20px;
-    display: grid;
+    display: flex;
     place-content: center;
+    gap: 5px;
     font-size: 1.2rem;
     background-color: #242C2C;
     color: #fff;
@@ -77,21 +94,38 @@
     cursor: pointer;
     border-radius: 4px;
     text-decoration: none;
+    transition: background-color .2s;
 }
-.checkout-link:hover {
+.payment-link:hover {
     background-color: #444;
 }
-.navigation-link {
-    margin-top: 43px;
+
+.fill-address-warning{
+    color: red;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 4px;
+    text-align: center;
+
 }
 
-.navigation-link a {
+.navigation-link button {
+    margin-top: 10px;
+    width: 100%;
     text-transform: uppercase;
     text-decoration: none;
-    color: #007BFF;
-    font-size: 1rem;
+    background-color: #2A9D8F;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color .2s;
 }
-
-.navigation-link a:hover {
-    border-bottom: 2px solid #007BFF;
+.navigation-link button:hover{
+    background-color: #8adad1;
 }

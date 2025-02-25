@@ -49,19 +49,29 @@
     .checkout-grid {
         grid-template-columns: 1fr;
     }
+
+    .order-summary,
+    .payment-section {
+        background: linear-gradient(135deg, #F8F9F9, #EAEDED);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 2px solid #242C2C;
+        border-radius: 10px;
+        padding: 20px 10px;
+
+    }
+
 }
 
 .checkout-grid h1 {
     color: #242C2C;
     font-weight: bold;
     font-size: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .order-summary {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 .product {
@@ -97,10 +107,16 @@
     color: #242C2C;
 }
 
-.product-size-quantity-container {
-    display: flex;
+.product-size-quantity-container-1 {
+    display: none;
     gap: 10px;
     align-items: center;
+}
+
+.product-size-quantity-container-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .product-size {
@@ -127,8 +143,8 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
 }
 
-.product-quantity .increment,
-.decrement {
+.product-quantity .add-number,
+.minus-number {
     padding: 8px 10px;
     background-color: #242C2C;
     color: white;
@@ -136,12 +152,12 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 700;
 }
 
-.decrement {
+.minus-number {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.increment {
+.add-number {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -166,9 +182,9 @@ input[type=number] {
     gap: 20px;
 }
 
-.product-manage-buttons .remove,
-.update,
-.save {
+.product-manage-buttons .remove-btn,
+.update-btn,
+.save-btn {
     background-color: transparent;
     border: 2px solid transparent;
     text-transform: uppercase;
@@ -176,49 +192,86 @@ input[type=number] {
     cursor: pointer;
 }
 
-.product-manage-buttons .update {
+.product-manage-buttons .update-btn {
     color: #F4A261;
 }
 
-.product-manage-buttons .remove {
+.product-manage-buttons .remove-btn {
     color: #E63946;
 }
 
-.product-manage-buttons .save {
+.product-manage-buttons .save-btn {
     color: #2A9D8F;
 }
 
+.product-manage-buttons .save-btn {
+    display: none;
+}
 
+.shop-btn {
+    background-color: #2A9D8F;
+    width: fit-content;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.shop-btn:hover {
+    background-color: #8adad1;
+}
 
 @media (max-width:520px) {
+    .checkout-grid h1 {
+        font-size: 1.5rem;
+    }
+
     .product-image {
         height: 100px;
         width: 100px;
     }
 
-    .product-size-quantity-container {
+    .product-size-quantity-container-1 {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .product-size {
+    .product-size-quantity-container-1 .product-size {
         padding: 5px;
     }
 
-    .product-quantity .increment,
-    .decrement,
+    .product-size-quantity-container-1 .product-quantity .add-number,
+    .minus-number,
     input[type=number] {
         padding: 5px;
     }
 
+    .product-size-quantity-container-2 span {
+        font-size: .9rem;
+    }
+
     .product-price {
         font-size: 1rem;
+    }
+
+    .product-manage-buttons {
+        gap: 5px;
+    }
+}
+@media (max-width:375px) {
+    .update-btn span,.save-btn span,.remove-btn span{
+        display: none;
+    }
+    .update-btn i,.save-btn i,.remove-btn i{
+        font-size: 1.2rem;
     }
 }
 
 
 /* .payment-section */
 .payment-section {
+    /* position: sticky; */
     display: flex;
     flex-direction: column;
 }
@@ -255,8 +308,10 @@ input[type=number] {
 .checkout-link {
     text-transform: uppercase;
     padding: 10px 20px;
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     font-size: 1.2rem;
     background-color: #242C2C;
     color: #fff;
@@ -266,21 +321,34 @@ input[type=number] {
     text-decoration: none;
 }
 
+.disable {
+    background-color: #888;
+    cursor: default;
+}
+
 .checkout-link:hover {
     background-color: #444;
 }
 
-.navigation-link {
-    margin-top: 43px;
+.disable:hover {
+    background-color: #888;
 }
 
-.navigation-link a {
+.navigation-link button {
+    width: 100%;
     text-transform: uppercase;
     text-decoration: none;
-    color: #007BFF;
-    font-size: 1rem;
+    background-color: #2A9D8F;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.navigation-link a:hover {
-    border-bottom: 2px solid #007BFF;
+.navigation-link button:hover {
+    background-color: #8adad1;
 }

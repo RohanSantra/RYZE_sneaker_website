@@ -102,38 +102,5 @@ export function addToCart(productClassType) {
     });
 }
 
-// export function addToCart(productClassType) {
-//     document.querySelectorAll('.add-to-cart-button').forEach(button => {
-//         button.addEventListener('click', () => {
-//             const productID = button.getAttribute('data-product-id');
-//             const productElement = button.closest(productClassType);
 
-//             let size = "";
-//             const sizeDropdown = productElement.querySelector('.product-size');
 
-//             if (sizeDropdown && sizeDropdown.tagName === "SELECT") {
-//                 // If size selection is a dropdown
-//                 size = sizeDropdown.value.trim();
-//             } else {
-//                 // If size selection is radio buttons (inside productElement)
-//                 const selectedRadio = productElement.querySelector('input[name="size"]:checked');
-//                 size = selectedRadio.value.trim();
-//             }
-
-//             const quantity = productElement.querySelector('.number').value;
-
-//             const data = new URLSearchParams();
-//             data.append('product_id', productID);
-//             data.append('size', size);
-//             data.append('quantity', quantity);
-
-//             // Send the data using fetch API
-//             fetch('../api/user/add_to_cart.php', {
-//                 method: 'POST',
-//                 body: data,
-//                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-//             })
-//                 .then(window.location.reload());
-//         });
-//     });
-// }

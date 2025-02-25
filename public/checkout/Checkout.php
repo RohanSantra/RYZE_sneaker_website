@@ -18,7 +18,7 @@ $totalPrice = 0;
 if ($cartID) {
     // Fetch cart items with product details
     $cartItemsQuery = $conn->prepare("
-        SELECT ci.productID, ci.size, ci.quantity, p.name, p.product_image, p.price 
+        SELECT ci.cartItemID, ci.productID, ci.size, ci.quantity, p.name, p.product_image, p.price, p.category 
         FROM cart_items ci
         JOIN products p ON ci.productID = p.product_id
         WHERE ci.cartID = ?
@@ -30,6 +30,7 @@ if ($cartID) {
         $cartItems[] = $row;
         $totalPrice += $row['price'] * $row['quantity'];
     }
+    $totalCartQuantity = array_sum(array_column($cartItems, 'quantity'));
     $cartItemsQuery->close();
 }
 ?>
@@ -77,7 +78,7 @@ if ($cartID) {
         <div class="right-section">
             <a class="cart-link" href="Checkout.php">
                 <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
-                <div class="cart-quantity"><?php echo count($cartItems); ?></div>
+                <div class="cart-quantity"><?php echo $totalCartQuantity; ?></div>
             </a>
         </div>
     </header>
@@ -96,8 +97,8 @@ if ($cartID) {
         <div class="checkout-grid">
             <!-- Order Section -->
             <div class="order-section">
-                <h1>Shopping Cart</h1>
                 <div class="order-summary">
+                    <h1>Shopping Cart</h1>
                     <?php if (!empty($cartItems)) : ?>
                         <?php foreach ($cartItems as $item) : ?>
                             <div class="product">
@@ -106,29 +107,50 @@ if ($cartID) {
                                 </div>
                                 <div class="product-info">
                                     <div class="product-name"><?php echo htmlspecialchars($item['name']); ?></div>
-                                    <div class="product-size-quantity-container">
+                                    <div class="product-size-quantity-container-1">
                                         <select class="product-size">
-                                            <option selected><?php echo htmlspecialchars($item['size']); ?></option>
+                                            <?php
+                                                $sizes = [];
+                                                if (strtolower($item['category']) === "men") {
+                                                    $sizes = ["UK 6", "UK 7", "UK 8", "UK 9", "UK 10", "UK 11", "UK 12"];
+                                                } elseif (strtolower($item['category']) === "women") {
+                                                    $sizes = ["UK 4", "UK 5", "UK 6", "UK 7", "UK 8"];
+                                                } elseif (strtolower($item['category']) === "kids") {
+                                                    $sizes = ["UK 1", "UK 2", "UK 3", "UK 4", "UK 5"];
+                                                }
+                                                $selectedSize = htmlspecialchars($item['size']);
+                                                // Loop through sizes and set the selected one
+                                                foreach ($sizes as $size) {
+                                                    $isSelected = ($size === $selectedSize) ? "selected" : "";
+                                                    echo "<option value='$size' $isSelected>$size</option>";
+                                                }
+
+                                            ?>
                                         </select>
                                         <div class="product-quantity">
-                                            <button class="decrement">-</button>
-                                            <input type="number" min="1" max="5" value="<?php echo $item['quantity']; ?>">
-                                            <button class="increment">+</button>
+                                            <button class="minus-number">-</button>
+                                            <input type="number" min="1" max="5" value="<?php echo $item['quantity']; ?>" class="number"> 
+                                            <button class="add-number">+</button>
                                         </div>
                                     </div>
+                                    <div class="product-size-quantity-container-2">
+                                        <span>Size : <?php echo htmlspecialchars($item['size']); ?></span>
+                                        <span>Quantity : <?php echo $item['quantity']; ?></span>
+                                    </div>
                                     <div class="product-price">
-                                        &#8377;<?php echo number_format($item['price'], 2); ?>
+                                        &#8377;<?php echo number_format($item['price']*$item['quantity'], 2); ?>
                                     </div>
                                 </div>
                                 <div class="product-manage-buttons">
-                                <button class="update" data-product-id="<?php echo $item['productID']; ?>"><i class="fas fa-edit"></i> Update</button>
-                                <button class="save" data-product-id="<?php echo $item['productID']; ?>"><i class="fa-solid fa-check"></i> Save</button>
-                                    <button class="remove" data-product-id="<?php echo $item['productID']; ?>"><i class="fas fa-trash"></i> Remove</button>
+                                    <button class="update-btn" data-cart-item-id="<?php echo $item['cartItemID']; ?>"><i class="fas fa-edit"></i> <span>Update</span></button>
+                                    <button class="save-btn" data-cart-item-id="<?php echo $item['cartItemID']; ?>"><i class="fa-solid fa-check"></i> <span>Save<span></button>
+                                    <button class="remove-btn" data-cart-item-id="<?php echo $item['cartItemID']; ?>"><i class="fas fa-trash"></i> <span>Remove<span></button>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     <?php else : ?>
                         <p>Your cart is empty.</p>
+                        <a href="../Products.php" class="shop-btn">Shop now</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -149,11 +171,9 @@ if ($cartID) {
                         <div>Total:</div>
                         <div class="summary-amount">&#8377;<?php echo number_format($totalPrice, 2); ?></div>
                     </div>
-                    <a href="Shipping.html" class="checkout-link">
-                        Checkout now
-                    </a>
+                    <button class="checkout-link">Checkout now <i class="fa-solid fa-shopping-bag"></i></button>
                     <div class="navigation-link">
-                        <a href="../Products.html">Continue Shopping</a>
+                        <button class="shop-btn">Discover More <i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </div>
@@ -161,7 +181,6 @@ if ($cartID) {
     </main>
 
     <!-- Links for script -->
-    <script src="../../scripts/header.js?v=<?= $version ?>" type="module"></script>
-
+    <script src="../../assets/js/shopping_cart.js?v=<?= $version ?>" type="module"></script>
 </body>
 </html>

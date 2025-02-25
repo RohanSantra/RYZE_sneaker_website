@@ -24,8 +24,8 @@ export const fetchCategoryData = () => {
             .then(data => {
                 document.querySelector('.products-container').innerHTML = data;
                 navigateToProductPage();
-                quantityData();
-                addToCart();
+                quantityData(".product");
+                addToCart(".product");
             })
             .catch(error => console.error('Error:', error));
     });

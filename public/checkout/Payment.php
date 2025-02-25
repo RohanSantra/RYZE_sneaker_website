@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryze</title>
 
+    <!-- Links for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- Links for styles -->
-    <link rel="stylesheet" href="../../assets/css/checkout_header.css">
-    <link rel="stylesheet" href="../../assets/css/shipping.css">
-    <link rel="stylesheet" href="../../assets/css/payment_section.css">
+    <link rel="stylesheet" href="../../assets/css/checkout_header.css?v=<?= $version ?>">
+    <link rel="stylesheet" href="../../assets/css/payment.css?v=<?= $version ?>">
+    <link rel="stylesheet" href="../../assets/css/payment_section.css?v=<?= $version ?>">
 
 </head>
 
@@ -17,7 +20,7 @@
     <!-- Header Section -->
     <header class="header-section">
         <div class="left-section">
-            <a class="header-link" href="../Ryze.html">
+            <a class="header-link" href="../Ryze.php">
                 <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
             </a>
         </div>
@@ -27,8 +30,8 @@
                 <li class="active">Shopping Cart</li>
                 <span class="active">&RightArrow;</span>
                 <li class="active">Shipping</li>
-                <span>&RightArrow;</span>
-                <li>Payment</li>
+                <span class="active">&RightArrow;</span>
+                <li class="active">Payment</li>
             </ul>
         </div>
 
@@ -47,46 +50,67 @@
                 <li class="active">Shopping Cart</li>
                 <span class="active">&RightArrow;</span>
                 <li class="active">Shipping</li>
-                <span>&RightArrow;</span>
-                <li>Payment</li>
+                <span class="active">&RightArrow;</span>
+                <li class="active">Payment</li>
             </ul>
         </div>
         <div class="checkout-grid">
-            <div class="address-grid">
-                <form class="contact-summary">
-                    <h1>Contacts</h1>
-                    <div class="contact-container">
-                        <input type="text" placeholder="First Name" required>
-                        <input type="text" placeholder="Last Name" required>
-                        <input type="email" placeholder="E-mail" required>
-                        <input type="tel" placeholder="Phone" pattern="[0-9]{10}" required>
+            <div class="payment-grid">
+                <h1>Payment method</h1>
+                <div class="payment-option" data-type="card">
+                    <label for="card">
+                        <input type="radio" id="card" name="payment-type" required><i
+                            class='bx bxs-credit-card-alt'></i>Card
+                    </label>
+                    <div class="dropdown-content" id="card-details">
+                        <input type="text" placeholder="Cardholder Name">
+                        <input type="number" placeholder="Card Number">
+                        <input type="text" placeholder="Expiry date">
+                        <input type="number" placeholder="CVV">
                     </div>
-                    <h1>Shipping Address</h1>
-                    <div class="Shipping-container">
-                        <input type="text" placeholder="State" required>
-                        <input type="text" placeholder="City" required>
-                        <input type="number" placeholder="Postal Code" required>
-                        <input type="text" placeholder="Address" required>
-                    </div>
-                    <div class="shipping-charges">
-                        <div class="charges-1">
-                            <input type="radio" name="shipping" value="0" checked class="shipping-option">
-                            <span>STANDARD SHIPPING</span>
-                            <span>4-5 days</span>
-                            <span>FREE</span>
+                </div>
+                <div class="payment-option" data-type="online">
+                    <label for="online">
+                        <input type="radio" id="online" name="payment-type" required>
+                        <img src="../../assets/images/icons/mobile-payment.png" alt="mobile-payment" height="32px">
+                        Online Payment
+                    </label>
+                    <div class="dropdown-content" id="online-details">
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="online-app" value="PayPal">
+                                <img src="../../assets/images/icons/paypal.png" alt="mobile-payment" height="32px">
+                                PayPal
+                            </label>
+                            <label>
+                                <input type="radio" name="online-app" value="Google Pay">
+                                <img src="../../assets/images/icons/google-pay.png" alt="mobile-payment" height="32px">
+                                Google Pay
+                            </label>
+                            <label>
+                                <input type="radio" name="online-app" value="Apple Pay">
+                                <img src="../../assets/images/icons/apple-pay.png" alt="mobile-payment" height="32px">
+                                Apple Pay
+                            </label>
+                            <label>
+                                <input type="radio" name="online-app" value="PhonePay">
+                                <img src="../../assets/images/icons/phonepe-icon.png" alt="mobile-payment"
+                                    height="32px"> PhonePay
+                            </label>
+                            <label>
+                                <input type="radio" name="online-app" value="Paytm">
+                                <img src="../../assets/images/icons/paytm-icon.png" alt="mobile-payment" height="32px">
+                                Paytm
+                            </label>
                         </div>
-                        <div class="charges-2">
-                            <input type="radio" name="shipping" value="100" class="shipping-option">
-                            <span>STANDARD SHIPPING</span>
-                            <span>1-3 days</span>
-                            <span>&#8377;100</span>
-                        </div>
-                        <!-- <input type="submit" value="Continue to payment" class="payment-btn"> -->
                     </div>
-                </form>
-                <!-- <div class="navigation-link">
-                    <a href="#">Back to shopping cart</a>
-                </div> -->
+                </div>
+                <div class="payment-option" data-type="cash">
+                    <label for="cash">
+                        <input type="radio" id="cash" name="payment-type" required><i class='bx bx-money'></i> Cash on
+                        Delivery
+                    </label>
+                </div>
             </div>
 
             <!-- payment section -->
@@ -165,11 +189,11 @@
                         <div>Total:</div>
                         <div class="summary-amount">&#8377;9597.00</div>
                     </div>
-                    <a href="Payment.html" class="checkout-link">
-                            Continue to payment
+                    <a href="../orders.html" class="checkout-link">
+                        Complete purchase
                     </a>
                     <div class="navigation-link">
-                        <a href="Checkout.html">Back to shopping cart</a>
+                        <a href="Shipping.html">Back to shipping</a>
                     </div>
                 </div>
             </div>
@@ -177,7 +201,7 @@
     </main>
 
     <!-- Links for script -->
-    <script src="../../scripts/header.js" type="module"></script>
+    <script src="../../assets/js/payment_option.js?v=<?= $version ?>" type="module"></script>
 </body>
 
 </html>

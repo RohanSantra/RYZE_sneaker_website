@@ -37,7 +37,7 @@ navbarToggle();
         const handleScroll = () => {
             elements.forEach(element => {
                 const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+                if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
                     element.classList.add('visible');
                 } else {
                     element.classList.remove('visible'); // Ensure the class is removed if out of view

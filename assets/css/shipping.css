@@ -50,6 +50,21 @@
     .checkout-grid {
         grid-template-columns: 1fr;
     }
+
+    #shipping-form,
+    #shipping-details{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 2px solid #242C2C;
+        border-radius: 10px;
+        padding: 40px 20px;
+
+    }
+    .shipping-charges{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 2px solid #28a745;
+        border-radius: 10px;
+    }
+
 }
 
 .checkout-grid h1 {
@@ -59,9 +74,37 @@
     margin-bottom: 30px;
 }
 
+.hidden {
+    display: none;
+}
+
 .address-grid {
     display: flex;
     flex-direction: column;
+}
+
+.contact-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-main button {
+    text-decoration: none;
+    background-color: #AFCBFF;
+    height: fit-content;
+    padding: 10px;
+    text-transform: capitalize;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    outline: none;
+    border: none;
+    transition: background-color .2s;
+    font-size: 1.1rem;
+}
+
+.contact-main button:hover {
+    background-color: #c4d8fd;
 }
 
 .contact-container,
@@ -72,7 +115,21 @@
     margin-bottom: 50px;
 }
 
-.contact-container input,
+@media (max-width:525px) {
+
+    .contact-container,
+    .Shipping-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-container .input-box,
+.Shipping-container .input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/*.contact-container input,
 .Shipping-container input {
     background-color: transparent;
     border: none;
@@ -86,25 +143,142 @@
 .Shipping-container input::placeholder {
     color: #242C2C;
     text-transform: capitalize;
+} */
+
+
+
+.input-box label {
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+/* .Shipping-container .input-box:last-child {
+    background-color: red;
+    display: flex;
+    align-items: start;
+} */
+
+/* Text Inputs & Textarea */
+.input-box input,
+.input-box textarea,
+.input-box p {
+    padding: 10px;
+    border: 2px solid #242C2C;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    background: #fff;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+.input-box p {
+    border: 2px solid #ddd;
+    box-shadow: none;
+}
+
+/* Textarea */
+.input-box textarea {
+    resize: none;
+    height: auto;
+}
+
+.save-btn {
+    width: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: translateY(-20px);
+    transition: background-color .2s;
+}
+
+.save-btn:hover {
+    background-color: #89fb8d;
 }
 
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type=number]::-webkit-outer-spin-button,
+textarea::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
-.shipping-charges .charges-1,
-.charges-2 {
+.shipping-charges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
+    margin: 30px 0px;
+}
+
+.shipping-option {
+    display: none;
+}
+
+.shipping-option-card {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    width: 100%;
+    padding: 30px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+.shipping-option-card:nth-child(1){
+    border-top-left-radius:10px ;
+    border-bottom-left-radius:10px ;
+}
+.shipping-option-card:nth-child(2){
+    border-top-right-radius:10px ;
+    border-bottom-right-radius:10px ;
 }
 
-.shipping-charges .shipping-option {
-    accent-color: #242C2C;
+/* .shipping-option-card:hover {
+    background-color: #F0FFF0;
+} */
+
+.selected{
+    background-color: #c7fec7;
 }
 
-.charges-1 span,
-.charges-2 span {
-    font-weight: 500;
+
+.shipping-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shipping-info i {
+    font-size: 1.4rem;
     color: #242C2C;
+}
+
+.shipping-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.shipping-price {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.shipping-date {
+    font-size: 0.8rem;
+    color: #777;
 }
