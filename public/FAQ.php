@@ -257,7 +257,7 @@ include("../includes/config.php");
     ?>
 
     <!------------------- Links for script ---------------->
-    <script type="module" src="../assets/js/FAQ.js"></script>
+    <script type="module" src="../assets/js/FAQ.js?v=<?= $version ?>"></script>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
-import { initializeSidebar,navbarToggle } from "./header.js";
+import { initializeSidebar } from "./header.js";
 
 initializeSidebar();
-navbarToggle();
 
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {

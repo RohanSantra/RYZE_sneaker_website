@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // gettingUserID();
     redirectToCheckout();
     initializeSidebar();
-    // navbarToggle();
+    //navbarToggle();
     redirectionToLoginSignUpPage();
     dropdown();
 
