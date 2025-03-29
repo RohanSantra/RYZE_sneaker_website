@@ -132,10 +132,10 @@ if ($cart_query->num_rows > 0) {
 
 
         <!-- Cart Section -->
-        <a class="cart-link" href="checkout/Checkout.php">
+        <button class="cart-link">
             <img class="cart-icon" src="../assets/images/icons/cart-icon.png" alt="Cart Icon">
             <div class="cart-quantity"><?php echo $cart_quantity; ?></div>
-        </a>
+        </button>
 
         <!-- Hamburger open button for width < 768px -->
         <div class="side-close"></div>

@@ -181,6 +181,11 @@ include('../includes/init.php');
           </div>
     </section>
 
+    <!-- footer section -->
+    <?php
+        include("../includes/footer.php");
+    ?>
+
 
   <!------------------- Links for script ---------------->
   <script type="module" src="../assets/js/header.js?v=<?= $version ?>"></script>

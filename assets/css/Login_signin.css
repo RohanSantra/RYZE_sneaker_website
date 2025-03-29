@@ -54,6 +54,10 @@ form {
     width: 100%;
 }
 
+.invisible {
+    display: none;
+}
+
 .container h1 {
     font-size: 3rem;
     margin: 10px 0px;
@@ -111,24 +115,39 @@ form {
     color: #242C2C;
 }
 
-.error-message{
+.error-message {
     transform: translateY(-15px);
     height: 20px;
     width: 100%;
 }
 
 
-.forgot-link {
+.forgot-section,
+.back-to-login-section {
     margin: -15px 0px 15px;
 }
 
-.forgot-link a {
+.forgot-section a,
+.back-to-login-section a {
+    background-color: #fff;
+    border: none;
+    outline: none;
     font-size: 0.9rem;
     color: #333;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: .3s ease;
+
 }
 
-.btn {
+.forgot-section a:hover,
+.back-to-login-section a:hover {
+    border-bottom: 1px solid #242C2C;
+    cursor: pointer;
+}
+
+.btn,
+.pass-res-btn {
     width: 90%;
     height: 48px;
     background-color: #242C2C;
@@ -142,7 +161,8 @@ form {
     border-radius: 10px;
 }
 
-.btn:hover {
+.btn:hover,
+.pass-res-btn:hover {
     background-color: white;
     color: #242C2C;
 }
@@ -233,7 +253,8 @@ form {
         width: 100%;
         height: 70%;
     }
-    .container.active .form-box{
+
+    .container.active .form-box {
         right: 0;
         bottom: 30%;
     }
@@ -245,36 +266,42 @@ form {
         height: 300%;
         border-radius: 20vw;
     }
-    .container.active .toggle-box::before{
+
+    .container.active .toggle-box::before {
         left: 0;
         top: 70%;
     }
 
-    .toggle-panel{
+    .toggle-panel {
         width: 100%;
         height: 30%;
     }
-    .toggle-panel.toggle-left{
+
+    .toggle-panel.toggle-left {
         top: 0;
     }
-    .container.active .toggle-panel.toggle-left{
+
+    .container.active .toggle-panel.toggle-left {
         left: 0;
         top: -30%;
     }
-    .toggle-panel.toggle-right{
+
+    .toggle-panel.toggle-right {
         right: 0;
         bottom: -30%;
     }
-    .container.active .toggle-panel.toggle-right{
+
+    .container.active .toggle-panel.toggle-right {
         bottom: 0;
     }
 }
 
-@media (max-width:400px){
-    .form-box{
+@media (max-width:400px) {
+    .form-box {
         padding: 20px;
     }
-    .toggle-box h1{
+
+    .toggle-box h1 {
         font-size: 2rem;
     }
 }

@@ -22,15 +22,15 @@ require_once __DIR__ . "../../includes/init.php";
 <body>
 <div class="container">
         <div class="form-box login">
-            <form action="../api/user/LoginValidate.php" method="post">
+            <form action="../api/user/LoginValidate.php" method="post" class="login-form">
                 <h1>Login</h1>
-                <div class="social-icons">
+                <!-- <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-github"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <p>or use your email password</p>
+                <p>or use your email password</p> -->
                 <div class="input-box">
                     <input type="email" placeholder="Email" name="Email" id="email" required>
                     <i class="fa-solid fa-envelope"></i>
@@ -51,23 +51,50 @@ require_once __DIR__ . "../../includes/init.php";
                     // }
                     ?>
                 </div>
-                <div class="forgot-link">
-                    <a href="#">Forgot Password?</a>
+                <div class="forgot-section">
+                    <a href="#" class="forgot-pass-btn">Forgot Password?</a>
                 </div>
                 <button type="submit" name="Login-btn" class="btn">Login</button>
+            </form>
+            <form action="../api/user/change_password.php" method="POST" class="password-res-form invisible">
+                <h1>Change Password</h1>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" name="Email" id="email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Enter new Password" name="New_password" id="New_password" required>
+                    <i class="fa-solid fa-lock toggle-password-btn"  data-target="New_password"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Confirm Password" name="Confirm_password" id="Confirm_password" required>
+                    <i class="fa-solid fa-lock toggle-password-btn"  data-target="Confirm_password"></i>
+                </div>
+                <div class="error-message">
+                    <?php
+                    if (isset($_SESSION['passwordResetLoginError'])) {
+                        echo "<p style='color: red;'>" . htmlspecialchars($_SESSION['passwordResetLoginError']) . "</p>";
+                        unset($_SESSION['passwordResetLoginError']); // Clear the error after displaying
+                    }
+                    ?>
+                </div>
+                <div class="back-to-login-section">
+                    <a href="#" class="back-to-login-btn">Back To Login</a>
+                </div>
+                <button type="submit" name="pass-res-btn" class="pass-res-btn">Change Password</button>
             </form>
         </div>
 
         <div class="form-box signup">
             <form action="../api/user/SignupValidate.php" method="post">
                 <h1>Sign Up</h1>
-                <div class="social-icons">
+                <!-- <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-github"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <p>or use your email for registration</p>
+                <p>or use your email for registration</p> -->
                 <div class="input-box">
                     <input type="text" placeholder="Username" name="Username" id="username" required>
                     <i class="fa-solid fa-user"></i>

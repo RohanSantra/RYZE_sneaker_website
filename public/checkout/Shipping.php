@@ -1,25 +1,9 @@
 <?php
-session_start();
 include("../../includes/init.php");
-
 $userID = $_SESSION['userID'];
 
-// Fetch cartID for the user
-$cartQuery = $conn->prepare("SELECT cartID FROM carts WHERE userID = ?");
-$cartQuery->bind_param("i", $userID);
-$cartQuery->execute();
-$cartQuery->bind_result($cartID);
-$cartQuery->fetch();
-$cartQuery->close();
 
-//Fetching cart Quantity
-$sql = "SELECT SUM(quantity) AS total_quantity FROM cart_items WHERE cartID = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $cartID);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-$totalCartQuantity = $row['total_quantity'];
+
 
 
 // Fetch user details
@@ -72,33 +56,22 @@ $hasAddress = !empty($address['first_name']) && !empty($address['last_name']) &&
 
 <body>
     <!-- Header Section -->
-    <header class="header-section">
-        <div class="left-section">
-            <a class="header-link" href="../Ryze.php">
-                <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
-            </a>
-        </div>
+    <?php 
+        $pageType = 'shipping';
+        include('../../includes/checkout_header.php'); 
+    ?>
 
+    <!-- Main Section -->
+    <main class="main">
         <div class="navigation-indicator">
             <ul>
                 <li class="active">Shopping Cart</li>
                 <span class="active">&RightArrow;</span>
                 <li class="active">Shipping</li>
-                <span>&RightArrow;</span>
+                <span class="active">&RightArrow;</span>
                 <li>Payment</li>
             </ul>
         </div>
-
-        <div class="right-section">
-            <a class="cart-link" href="Checkout.php">
-                <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
-                <div class="cart-quantity"><?php echo $totalCartQuantity; ?></div>
-            </a>
-        </div>
-    </header>
-
-    <!-- Main Section -->
-    <main class="main">
         <div class="checkout-grid">
             <div class="address-grid">
                 <!-- Display form if address not present -->
@@ -211,7 +184,7 @@ $hasAddress = !empty($address['first_name']) && !empty($address['last_name']) &&
                             <div class="shipping-text">
                                 <span class="shipping-title">Standard Shipping</span>
                                 <span class="shipping-price">FREE</span>
-                                <span class="shipping-date">Arrives by <?= date('M d', strtotime('+4 days')) ?> - <?= date('M d', strtotime('+5 days')) ?></span>
+                                <span class="shipping-date">Arrives by <span class="date"><?= date('M d', strtotime('+5 days')) ?></span></span>
                             </div>
                         </div>
                     </label>
@@ -223,7 +196,7 @@ $hasAddress = !empty($address['first_name']) && !empty($address['last_name']) &&
                             <div class="shipping-text">
                                 <span class="shipping-title">Express Shipping</span>
                                 <span class="shipping-price">&#8377;100</span>
-                                <span class="shipping-date">Arrives by <?= date('M d', strtotime('+1 day')) ?> - <?= date('M d', strtotime('+3 days')) ?></span>
+                                <span class="shipping-date">Arrives by <span class="date"><?= date('M d', strtotime('+3 days')) ?></span></span>
                             </div>
                         </div>
                     </label>
@@ -232,7 +205,10 @@ $hasAddress = !empty($address['first_name']) && !empty($address['last_name']) &&
 
 
             <!-- Payment section -->
-            <?php include('../../includes/payment_section.php'); ?>
+            <?php 
+                $pageType = 'shipping';
+                include('../../includes/payment_section.php'); 
+            ?>
         </div>
     </main>
 

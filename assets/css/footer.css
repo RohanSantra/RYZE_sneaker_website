@@ -37,6 +37,8 @@ footer .column a {
     text-decoration: none;
 }
 
+
+
 footer .column li {
     list-style: none;
     margin-bottom: 10px;
@@ -47,40 +49,9 @@ footer .column a:hover {
     transition: color 0.3s ease-in-out;
 }
 
-/* Newsletter section */
-footer .newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-footer .newsletter input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #242C2C;
-    outline: none;
-}
-
-footer .newsletter input::placeholder {
-    color: #c4c4c4;
-}
-
-footer .newsletter button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #D9D9D9;
-    color: #242C2C;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease-in-out;
-}
-
-footer .newsletter button:hover {
-    background-color: #8A8886;
+/* Latest News */
+footer .news-item i {
+    font-size: 1.5rem;
 }
 
 /* Social media icons */
@@ -112,10 +83,11 @@ footer .bottom-row {
 
 /* Responsive design */
 @media (max-width: 1200px) {
-    footer .container{
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    footer .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+
 @media (max-width: 800px) {
     footer .container {
         grid-template-columns: 1fr;
@@ -124,6 +96,12 @@ footer .bottom-row {
     footer .anchor-links {
         display: flex;
         gap: 30px;
+    }
+
+    footer .news-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     footer .bottom-row {

@@ -1,4 +1,4 @@
-import { quantityData, navigateToProductPage, addToCart } from "./utility.js";
+import { quantityData, navigateToProductPage, addToCart,redirectToCheckout } from "./utility.js";
 
 
 // const timepass = () => {
@@ -46,6 +46,7 @@ function individualAddToCart() {
 
 
 // updateData();
+redirectToCheckout();
 quantityData(".products");
 quantityData(".Product");
 navigateToProductPage(".products");

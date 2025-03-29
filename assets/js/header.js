@@ -1,3 +1,5 @@
+import { redirectToCheckout,gettingUserID } from "./utility.js";
+
 export function initializeSidebar() {
     const middleSection = document.querySelector('.middle-section');
     const sideClose = document.querySelector('.side-close');
@@ -28,38 +30,38 @@ export function initializeSidebar() {
     });
 }
 
-export function navbarToggle() {
-    let lastScrollPosition = 0;
-    const header = document.querySelector('.header-section');
-    const middleSection = document.querySelector('.middle-section');
-    const sideClose = document.querySelector('.side-close');
+// export function navbarToggle() {
+//     let lastScrollPosition = 0;
+//     const header = document.querySelector('.header-section');
+//     const middleSection = document.querySelector('.middle-section');
+//     const sideClose = document.querySelector('.side-close');
 
-    if (!header) {
-        console.error("Header element is not found in the DOM.");
-        return;
-    }
+//     if (!header) {
+//         console.error("Header element is not found in the DOM.");
+//         return;
+//     }
 
-    window.addEventListener('scroll', () => {
-        const currentScrollPosition = window.pageYOffset;
+//     window.addEventListener('scroll', () => {
+//         const currentScrollPosition = window.pageYOffset;
 
-        // Close the sidebar when the window is scrolled
-        if (middleSection && sideClose) {
-            middleSection.style.right = '-100%';
-            sideClose.style.display = 'none';
-        }
+//         // Close the sidebar when the window is scrolled
+//         if (middleSection && sideClose) {
+//             middleSection.style.right = '-100%';
+//             sideClose.style.display = 'none';
+//         }
 
-        if (currentScrollPosition > lastScrollPosition) {
-            // Scrolling down: Hide header
-            header.classList.add('header-hidden');
-        } else {
-            // Scrolling up: Show header
-            header.classList.remove('header-hidden');
-        }
+//         if (currentScrollPosition > lastScrollPosition) {
+//             // Scrolling down: Hide header
+//             header.classList.add('header-hidden');
+//         } else {
+//             // Scrolling up: Show header
+//             header.classList.remove('header-hidden');
+//         }
 
-        // Update the last scroll position
-        lastScrollPosition = currentScrollPosition;
-    });
-}
+//         // Update the last scroll position
+//         lastScrollPosition = currentScrollPosition;
+//     });
+// }
 
 export function dropdown() {
     const userDropdown = document.querySelector(".user-dropdown");
@@ -115,12 +117,34 @@ function redirectionToLoginSignUpPage() {
 }
 
 
+export function gettingUserIDToNavigateToCheckout() {
+    document.querySelector('.cart-link').addEventListener('click',()=>[
+        fetch('../includes/getUserID.php') // Correct file name
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            if (data.userID) {
+                window.location.href='./checkout/Checkout.php';
+            } else{
+                alert("Please login first to continue");
+                window.location.href = "./Login_Signup.php";
+                
+            }
+        })
+        .catch(error => console.error('Error:', error))
+    ]);
+}
+
 
 // Initialize functions after DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
+    gettingUserIDToNavigateToCheckout();
+    // gettingUserID();
+    redirectToCheckout();
     initializeSidebar();
-    navbarToggle();
+    // navbarToggle();
     redirectionToLoginSignUpPage();
     dropdown();
 
 });
+
+

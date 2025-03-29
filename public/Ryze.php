@@ -57,8 +57,8 @@ include("../includes/config.php");
                             <?php echo $product['product_description']; ?>
                         </p>
                         <div class="more animate-on-slide right-left">
-                            <!-- <button><i class="fa-solid fa-cart-shopping"></i> Add to cart</button> -->
-                            <button class="view">View More</button>
+                            <button class="view">View More <i class='bx bxs-shopping-bag'></i></button>
+                            <button class="view-product-btn" data-ID="<?php echo htmlspecialchars($product['product_id']); ?>"> see product <i class='bx bx-chevron-right' ></i></button>
                         </div>
                     </div>
                 </div>
@@ -327,73 +327,11 @@ include("../includes/config.php");
     </section>
 
     <!-- Footer section -->
-    <footer>
-        <div class="container">
-            <!-- Column 1: Branding & About -->
-            <div class="column">
-                <h2>About Us</h2>
-                <p>RYZE is committed to elevating your game, offering unmatched content, and providing opportunities to
-                    connect
-                    and grow.</p>
-            </div>
+    <?php
+        include("../includes/footer.php");
+    ?>
 
-            <!-- Column 2: Quick Links -->
-            <div class="column">
-                <h2>Quick Links</h2>
-                <ul class="anchor-links">
-                    <li><a href="Policies.php">Policies</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="FAQ.php">FAQ</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
-                </ul>
-            </div>
 
-            <!-- Column 3: Newsletter -->
-            <div class="column">
-                <h2>Newsletter</h2>
-                <p>Subscribe to our newsletter for the latest updates:</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </div>
-            </div>
-
-            <!-- Column 4: Social Media -->
-            <div class="column">
-                <h2>Follow Us</h2>
-                <div class="social-icons">
-                    <a href="#"><i class="bx bxl-instagram"></i></a>
-                    <a href="#"><i class="bx bxl-facebook-square"></i></a>
-                    <a href="#"><i class="bx bxl-twitter"></i></a>
-                </div>
-            </div>
-
-            <!-- Row 2:Address section -->
-            <div class="column">
-                <h2>Address:</h2>
-                <p>1234 Ryze Street, Suite 100, City, State, 12345</p>
-            </div>
-
-            <!-- Row 2:Phone number -->
-            <div class="column">
-                <h2>Phone:</h2>
-                <li>(123) 456-7890</li>
-                <li>(123) 456-7890</li>
-            </div>
-
-            <!-- Row 2:Email section -->
-            <div class="column">
-                <h2>Email:</h2>
-                <li>contact@ryze.com</li>
-                <li>contact@ryze.com</li>
-            </div>
-        </div>
-
-        <!-- Bottom Row -->
-        <div class="bottom-row">
-            Copyright &copy; 2024 Ryze, All Rights Reserved.
-        </div>
-    </footer>
 
     <!------------------- Links for script ---------------->
     <script type="module" src="../assets/js/header.js?v=<?= $version ?>"></script>

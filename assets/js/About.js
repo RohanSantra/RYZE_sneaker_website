@@ -1,8 +1,7 @@
-import { initializeSidebar, navbarToggle } from "./header.js";
+import { initializeSidebar } from "./header.js";
 
 // initializing the Sidebar
 initializeSidebar();
-navbarToggle();
 
 
 /**

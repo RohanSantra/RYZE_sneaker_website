@@ -1,4 +1,4 @@
-import { quantityData,navigateToProductPage,addToCart } from "./utility.js";
+import { quantityData,navigateToProductPage,addToCart,redirectToCheckout } from "./utility.js";
 
 function slider() {
     // Select elements
@@ -91,7 +91,14 @@ function redirectionTOProduct() {
     });
 }
 
-
+function redirectionTOSpecificProductPage(){
+    document.querySelectorAll(".view-product-btn").forEach(button=>{
+        button.addEventListener('click',()=>{
+            const productID = button.getAttribute('data-ID');
+            window.location.href = `product.php?ID=${encodeURIComponent(productID)}`;
+        })
+    })
+}
 
 
 function redirectionTOProductWithCategory() {
@@ -108,10 +115,30 @@ function redirectionTOProductWithCategory() {
 }
 
 
+// function gettingUserID() {
+//     fetch('../includes/getUserID.php') // Correct file name
+//         .then(response => response.json()) // Parse JSON response
+//         .then(data => {
+//             if (data.userID) {
+//                 return; 
+//             } else{
+//                 alert("Please login first to continue");
+//                 window.location.href = "./Login_Signup.php";
+                
+//             }
+//         })
+//         .catch(error => console.error('Error:', error));
+// }
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
+    redirectToCheckout();
     slider();
     redirectionTOProduct();
+    redirectionTOSpecificProductPage();
     redirectionTOProductWithCategory();
     quantityData(".product");
     navigateToProductPage(".product");

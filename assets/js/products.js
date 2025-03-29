@@ -1,4 +1,4 @@
-import { quantityData, navigateToProductPage, addToCart } from "./utility.js";
+import { quantityData, navigateToProductPage, addToCart,redirectToCheckout } from "./utility.js";
 
 const selectValueFromURL = () => {
     // Example: Get value from the URL (e.g., ?category=Men)
@@ -31,13 +31,20 @@ export const fetchCategoryData = () => {
     });
 }
 
-
+// function redirectToCheckout(){
+//     document.querySelectorAll('.add-to-cart-button').forEach(button => {
+//         button.addEventListener('click', () => {
+//             gettingUserID();
+//         });
+//     });
+// }
 
 
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    redirectToCheckout();
     selectValueFromURL();
     fetchCategoryData();
     quantityData(".product");

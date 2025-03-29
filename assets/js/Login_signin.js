@@ -64,3 +64,41 @@ document.querySelectorAll('.toggle-password-btn').forEach(button => {
 });
 
 
+function toggleLoginToResetPasswordForm() {
+    const forgotPassBtn = document.querySelector('.forgot-pass-btn');
+    const backToLoginBtn = document.querySelector('.back-to-login-btn');
+    const loginForm = document.querySelector('.login-form');
+    const passwordResForm = document.querySelector('.password-res-form');
+
+    // Check Local Storage on Page Load
+    if (localStorage.getItem("formState") === "resetPassword") {
+        loginForm.classList.add('invisible');
+        passwordResForm.classList.remove('invisible');
+    } else {
+        loginForm.classList.remove('invisible');
+        passwordResForm.classList.add('invisible');
+    }
+
+    // Forgot Password Button Click
+    forgotPassBtn?.addEventListener('click', () => {
+        loginForm.classList.add('invisible');
+        passwordResForm.classList.remove('invisible');
+        localStorage.setItem("formState", "resetPassword");
+    });
+
+    // Back to Login Button Click
+    backToLoginBtn?.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission if it's inside a form
+        passwordResForm.classList.add('invisible');
+        loginForm.classList.remove('invisible');
+        localStorage.setItem("formState", "login");
+    });
+}
+
+// Initialize the function
+document.addEventListener("DOMContentLoaded", toggleLoginToResetPasswordForm);
+
+
+
+
+toggleLoginToResetPasswordForm();

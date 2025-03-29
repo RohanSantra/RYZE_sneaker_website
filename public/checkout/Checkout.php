@@ -30,7 +30,6 @@ if ($cartID) {
         $cartItems[] = $row;
         $totalPrice += $row['price'] * $row['quantity'];
     }
-    $totalCartQuantity = array_sum(array_column($cartItems, 'quantity'));
     $cartItemsQuery->close();
 }
 ?>
@@ -58,30 +57,10 @@ if ($cartID) {
 <body>
 
     <!-- Header Section -->
-    <header class="header-section">
-        <div class="left-section">
-            <a class="header-link" href="../Ryze.php">
-                <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
-            </a>
-        </div>
-
-        <div class="navigation-indicator">
-            <ul>
-                <li class="active">Shopping Cart</li>
-                <span>&RightArrow;</span>
-                <li>Shipping</li>
-                <span>&RightArrow;</span>
-                <li>Payment</li>
-            </ul>
-        </div>
-
-        <div class="right-section">
-            <a class="cart-link" href="Checkout.php">
-                <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
-                <div class="cart-quantity"><?php echo $totalCartQuantity; ?></div>
-            </a>
-        </div>
-    </header>
+    <?php 
+        $pageType = 'checkout';
+        include('../../includes/checkout_header.php'); 
+    ?>
 
     <!-- Main section -->
     <main class="main">
@@ -107,6 +86,12 @@ if ($cartID) {
                                 </div>
                                 <div class="product-info">
                                     <div class="product-name"><?php echo htmlspecialchars($item['name']); ?></div>
+                                    <div class="product-category">
+                                        <span>Category: </span>
+                                        <span class="<?php echo htmlspecialchars($item['category']); ?>">
+                                            <?php echo htmlspecialchars($item['category']); ?>
+                                        </span>
+                                    </div>
                                     <div class="product-size-quantity-container-1">
                                         <select class="product-size">
                                             <?php

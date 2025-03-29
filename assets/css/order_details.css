@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.order-details-container {
+    max-width: 90vw;
+    margin: 100px auto;
+}
+
+.order-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.order-date{
+    width: 300px;
+    margin: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+}
+.order-date:nth-child(2){
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+.order-date:nth-child(3){
+    border: 2px solid #3A8D99;
+    color: #3A8D99;
+}
+
+
+.order-status {
+    margin: 20px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #242C2C;
+    border-radius: 10px;
+    padding: 40px 20px;
+}
+
+.order-status h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.status-steps .step {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 8px solid #ccc;
+    position: relative;
+}
+
+.status-steps .step.active {
+    border-bottom-color: #3A8D99;
+    font-weight: bold;
+}
+
+.status-steps .step span {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+}
+
+.order-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width:768px) {
+    .order-container{
+        grid-template-columns: 1fr;
+    }
+    .order-date{
+        width: 100%;
+    }
+}
+
+.order-items {
+    display: grid;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #242C2C;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.order-items h2 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #242C2C;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0px;
+    border-radius: 8px;
+    
+}
+
+.product-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.Men {
+    color: #3A8D99;
+}
+
+.Women {
+    color: #F76C6C;
+}
+
+.Kids {
+    color: #F8C24A;
+}
+
+.payment-details {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #242C2C;
+    border-radius: 10px;
+    padding: 10px 20px;
+    height: fit-content;
+}
+.payment-details h1{
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-row:nth-last-of-type(2) {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.line {
+    border-top: 2px solid #242C2C;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+@media (max-width:425px) {
+    .order-header h1{
+        font-size: 1.5rem;
+    }
+    .status-steps {
+        flex-direction: column;
+    }
+    
+    .status-steps .step {
+        flex: 1;
+        width: fit-content;
+        padding: 20px;
+        padding-left: 30px;
+        border-left: 8px solid #ccc;
+        border-bottom: none;
+    }
+    
+    .status-steps .step.active {
+        border-left-color: #3A8D99;
+        font-weight: bold;
+    }
+
+}

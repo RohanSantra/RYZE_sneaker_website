@@ -246,6 +246,9 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     position: relative;
+    outline: none;
+    border: none;
+    background-color: #fff;
 }
 
 .cart-icon {

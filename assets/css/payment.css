@@ -8,7 +8,11 @@
 
 .main h1 {
     color: #242C2C;
-    ;
+    margin-bottom: 20px;
+}
+
+.hidden{
+    display: none;
 }
 
 @keyframes fade {
@@ -166,5 +170,16 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
     gap: 10px;
     cursor: pointer;
+}
+
+
+.error-msg{
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    display: none;
 }
 

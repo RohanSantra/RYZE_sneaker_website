@@ -493,7 +493,11 @@
 @media (max-width: 390px) {
     .list .image {
         top: -10%;
-
+    }
+    .more{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
 }

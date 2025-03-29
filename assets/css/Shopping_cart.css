@@ -107,6 +107,22 @@
     color: #242C2C;
 }
 
+/* .product-category {
+    margin-bottom: 5px;
+} */
+
+.Men {
+    color: #3A8D99;
+}
+
+.Women {
+    color: #F76C6C;
+}
+
+.Kids {
+    color: #F8C24A;
+}
+
 .product-size-quantity-container-1 {
     display: none;
     gap: 10px;
@@ -116,7 +132,7 @@
 .product-size-quantity-container-2 {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .product-size {
@@ -247,7 +263,7 @@ input[type=number] {
         padding: 5px;
     }
 
-    .product-size-quantity-container-2 span {
+    .product-size-quantity-container-2 span,.product-category {
         font-size: .9rem;
     }
 

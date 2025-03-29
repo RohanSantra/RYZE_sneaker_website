@@ -207,82 +207,18 @@ include("../includes/config.php");
                 <p>Follow us on our journey—stay connected for the latest releases, collaborations, and stories from our
                     community.</p>
                 <div class="icons">
-                    <a href="#"><i class='bx bxl-instagram'></i></a>
-                    <a href="#"><i class='bx bxl-facebook-square'></i></a>
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.facebook.com/"><i class="bx bxl-facebook-square"></i></a>
+                    <a href="https://x.com/?lang=en"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer section -->
-    <footer>
-        <div class="container">
-            <!-- Column 1: Branding & About -->
-            <div class="column">
-                <h2>About Us</h2>
-                <p>RYZE is committed to elevating your game, offering unmatched content, and providing opportunities to
-                    connect
-                    and grow.</p>
-            </div>
-
-            <!-- Column 2: Quick Links -->
-            <div class="column">
-                <h2>Quick Links</h2>
-                <ul class="anchor-links">
-                    <li><a href="Policies.html">Policies</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="FAQ.html">FAQ</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Newsletter -->
-            <div class="column">
-                <h2>Newsletter</h2>
-                <p>Subscribe to our newsletter for the latest updates:</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </div>
-            </div>
-
-            <!-- Column 4: Social Media -->
-            <div class="column">
-                <h2>Follow Us</h2>
-                <div class="social-icons">
-                    <a href="#"><i class="bx bxl-instagram"></i></a>
-                    <a href="#"><i class="bx bxl-facebook-square"></i></a>
-                    <a href="#"><i class="bx bxl-twitter"></i></a>
-                </div>
-            </div>
-
-            <!-- Row 2:Address section -->
-            <div class="column">
-                <h2>Address:</h2>
-                <p>1234 Ryze Street, Suite 100, City, State, 12345</p>
-            </div>
-
-            <!-- Row 2:Phone number -->
-            <div class="column">
-                <h2>Phone:</h2>
-                <li>(123) 456-7890</li>
-                <li>(123) 456-7890</li>
-            </div>
-
-            <!-- Row 2:Email section -->
-            <div class="column">
-                <h2>Email:</h2>
-                <li>contact@ryze.com</li>
-                <li>contact@ryze.com</li>
-            </div>
-        </div>
-
-        <!-- Bottom Row -->
-        <div class="bottom-row">
-            Copyright &copy; 2024 Ryze, All Rights Reserved.
-        </div>
-    </footer>
+    <?php
+        include("../includes/footer.php");
+    ?>
 
     <!------------------- Links for script ---------------->
     <script type="module" src="../assets/js/About.js?v=<?= $version ?>"></script>

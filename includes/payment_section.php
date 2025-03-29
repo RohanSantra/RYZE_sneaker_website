@@ -5,11 +5,11 @@ include("../../includes/init.php");
 $userID = $_SESSION['userID'];
 
 // Fetch cartID for the user
-$cartQuery = $conn->prepare("SELECT cartID,shipping_charges FROM carts WHERE userID = ?");
+$cartQuery = $conn->prepare("SELECT cartID FROM carts WHERE userID = ?");
 $cartQuery->bind_param("i", $userID);
 $cartQuery->execute();
 
-$cartQuery->bind_result($cartID,$shipping_charges);
+$cartQuery->bind_result($cartID);
 $cartQuery->fetch();
 $cartQuery->close();
 
@@ -33,6 +33,19 @@ if ($cartID) {
     }
     $cartItemsQuery->close();
 }
+
+// Fetch shipping address
+$address_query = $conn->prepare("SELECT first_name, last_name, phone, state, city, postal_code, address FROM shipping_address WHERE userID = ?");
+$address_query->bind_param("i", $userID);
+$address_query->execute();
+$address_result = $address_query->get_result();
+$address = $address_result->fetch_assoc() ?? [];
+
+$address_query->close();
+
+
+// checking if all the values are present in database 
+$hasAddress = !empty($address['first_name']) && !empty($address['last_name']) && !empty($address['phone']) && !empty($address['state']) && !empty($address['city']) && !empty($address['postal_code']) && !empty($address['address']);
 ?>
 
 <div class="payment-section">
@@ -50,6 +63,12 @@ if ($cartID) {
                     </div>
                     <div class="product-info">
                         <div class="product-name"><?php echo htmlspecialchars($item['name']); ?></div>
+                        <div class="product-category">
+                            <span>Category: </span>
+                            <span class="<?php echo htmlspecialchars($item['category']); ?>">
+                                <?php echo htmlspecialchars($item['category']); ?>
+                            </span>
+                        </div>
                         <div class="product-size-quantity-container">
                             <span>Size: <?php echo htmlspecialchars($item['size']); ?></span>
                             <span>Quantity: <?php echo htmlspecialchars($item['quantity']); ?></span>
@@ -69,16 +88,26 @@ if ($cartID) {
         </div>
         <div class="summary-row">
             <div>Shipping:</div>
-            <div class="summary-amount"><span id="shipping-cost">0</span></div>
+            <div class="summary-amount"><span id="shipping-cost"></span></div>
         </div>
         <div class="summary-row line">
             <div>Total:</div>
-            <div class="summary-amount total-amount">&#8377;<?php echo number_format($totalPrice+$shipping_charges, 2); ?></div>
+            <div class="summary-amount total-amount">&#8377;<?php echo number_format($totalPrice, 2); ?></div>
         </div>
-        <button class="payment-link <?= $hasAddress ? 'hidden' : '' ?>" >Continue to payment <i class="fa-solid fa-credit-card"></i> </button>
-        <p class="fill-address-warning <?= $hasAddress ? 'hidden' : '' ?>">*Please fill your address</p>
-        <div class="navigation-link">
-            <button class="shop-btn">Keep Shopping <i class="fa-solid fa-cart-shopping"></i></button>
-        </div>
+        <!-- Payment or Order Button -->
+        <?php if ($pageType === 'shipping'): ?>
+            <button class="payment-link <?= $hasAddress ? '' : 'hidden' ?>">Continue to payment <i class="fa-solid fa-credit-card"></i></button>
+            <p class="fill-address-warning <?= $hasAddress ? 'hidden' : '' ?>">*Please fill your address</p>
+            <div class="navigation-link">
+                <button class="shop-btn">Keep Shopping <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        <?php else: ?>
+            <button class="confirm-purchase-btn <?= $hasAddress ? '' : 'hidden' ?>">Complete purchase <img src="../../assets/images/icons/Ryze_sneaker.png" alt="Ryze_sneaker"></button>
+            <p class="fill-address-warning <?= $hasAddress ? 'hidden' : '' ?>">*Please fill your address</p>
+            <div class="shipping-navigation-link">
+                <button class="shipping-btn">Back to shipping <i class="fas fa-truck"></i></button>
+            </div>
+        <?php endif; ?>
+
     </div>
 </div>

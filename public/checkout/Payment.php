@@ -1,3 +1,9 @@
+<?php
+include("../../includes/init.php");
+$userID = $_SESSION['userID'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +13,9 @@
     <title>Ryze</title>
 
     <!-- Links for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Links for styles -->
@@ -18,30 +27,10 @@
 
 <body>
     <!-- Header Section -->
-    <header class="header-section">
-        <div class="left-section">
-            <a class="header-link" href="../Ryze.php">
-                <img src="../../assets/images/Ryze.png" alt="Ryze Logo" class="ryze-logo">
-            </a>
-        </div>
-
-        <div class="navigation-indicator">
-            <ul>
-                <li class="active">Shopping Cart</li>
-                <span class="active">&RightArrow;</span>
-                <li class="active">Shipping</li>
-                <span class="active">&RightArrow;</span>
-                <li class="active">Payment</li>
-            </ul>
-        </div>
-
-        <div class="right-section">
-            <a class="cart-link" href="Checkout.html">
-                <img class="cart-icon" src="../../assets/images/icons/cart-icon.png" alt="Cart Icon">
-                <div class="cart-quantity">0</div>
-            </a>
-        </div>
-    </header>
+    <?php 
+        $pageType = 'payment';
+        include('../../includes/checkout_header.php'); 
+    ?>
 
     <!-- main section -->
     <main class="main">
@@ -111,92 +100,17 @@
                         Delivery
                     </label>
                 </div>
+
+                <div class="error-box">
+                    <p class="error-msg">*hello hfiauiubfoabobfoabo</p>
+                </div>
             </div>
 
             <!-- payment section -->
-            <div class="payment-section">
-                <div class="payment-summary">
-                    <div class="summary-row">
-                        <h1>Your order</h1>
-                        <a href="Checkout.html">Edit cart</a>
-                    </div>
-                    <!-- product summary -->
-                    <div class="summary-row">
-                        <!-- Product 1 -->
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="../../assets/images/products_bg/Ballet Breeze W.jpg" alt="Ballet Breeze">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Ballet Breeze</div>
-                                <div class="product-size-quantity-container">
-                                    <span>Size : UK 8</span>
-                                    <span>Quantity : 1</span>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                &#8377;2999
-                            </div>
-                        </div>
-                    </div>
-                    <div class="summary-row">
-                        <!-- Product 2 -->
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="../../assets/images/products_bg/SkyWave Kicks K.jpg" alt="Ballet Breeze">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">SkyWave Kicks</div>
-                                <div class="product-size-quantity-container">
-                                    <span>Size : UK 4</span>
-                                    <span>Quantity : 1</span>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                &#8377;3999
-                            </div>
-                        </div>
-                    </div>
-                    <div class="summary-row">
-                        <!-- Product 3 -->
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="../../assets/images/products_bg/Skyline Sprint M.jpg" alt="Ballet Breeze">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Skyline Sprint</div>
-                                <div class="product-size-quantity-container">
-                                    <span>Size : UK 10</span>
-                                    <span>Quantity : 1</span>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                &#8377;2599
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- amount summary -->
-                    <div class="summary-row line">
-                        <div>Subtotal:</div>
-                        <div class="summary-amount">&#8377;9597.00</div>
-                    </div>
-                    <div class="summary-row">
-                        <div>Shipping:</div>
-                        <div class="summary-amount">&#8377;0.00</div>
-                    </div>
-                    <div class="summary-row line">
-                        <div>Total:</div>
-                        <div class="summary-amount">&#8377;9597.00</div>
-                    </div>
-                    <a href="../orders.html" class="checkout-link">
-                        Complete purchase
-                    </a>
-                    <div class="navigation-link">
-                        <a href="Shipping.html">Back to shipping</a>
-                    </div>
-                </div>
-            </div>
+            <?php 
+                $pageType = 'payment';
+                include('../../includes/payment_section.php'); 
+            ?>
         </div>
     </main>
 

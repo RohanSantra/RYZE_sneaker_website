@@ -1,6 +1,56 @@
 <?php
-include("../includes/config.php");
+include("../includes/init.php");
+
+$userID=$_SESSION['userID'];
+
+
+// Fetch orders and their items
+$orders = [];
+$stmt = $conn->prepare("
+    SELECT o.orderID, o.orderDate, o.deliveryDate, o.totalAmountBeforeShipping, o.shippingCharges, 
+           o.totalAmountWithShipping, o.status, o.paymentMethod, o.addressID,
+           oi.orderItemID, oi.productID, oi.quantity, oi.size, 
+           p.name, p.product_image, p.category
+    FROM orders o
+    JOIN order_items oi ON o.orderID = oi.orderID
+    JOIN products p ON oi.productID = p.product_id
+    WHERE o.userID = ?
+    ORDER BY o.orderDate DESC
+");
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Organize orders and their items
+while ($row = $result->fetch_assoc()) {
+    $orderID = $row['orderID'];
+    if (!isset($orders[$orderID])) {
+        $orders[$orderID] = [
+            'orderID' => $orderID,
+            'orderDate' => $row['orderDate'],
+            'deliveryDate' => $row['deliveryDate'],
+            'totalAmountBeforeShipping' => $row['totalAmountBeforeShipping'],
+            'shippingCharges' => $row['shippingCharges'],
+            'totalAmountWithShipping' => $row['totalAmountWithShipping'],
+            'status' => $row['status'],
+            'paymentMethod' => $row['paymentMethod'],
+            'addressID' => $row['addressID'],
+            'items' => []
+        ];
+    }
+    $orders[$orderID]['items'][] = [
+        'orderItemID' => $row['orderItemID'],
+        'productID' => $row['productID'],
+        'name' => $row['name'],
+        'product_image' => $row['product_image'],
+        'category'=>$row['category'],
+        'quantity' => $row['quantity'],
+        'size' => $row['size']
+    ];
+}
+$stmt->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,107 +74,60 @@ include("../includes/config.php");
 
 <body>
     <!-- Header Section -->
-    <?php
-    include("../includes/header.php");
-    ?>
+    <?php include("../includes/header.php"); ?>
 
     <div class="order-section">
+        <?php if (empty($orders)): ?>
+            <p>No orders found.</p>
+        <?php else: ?>
+            <?php foreach ($orders as $order): ?>
+                <!-- Order Container -->
+                <div class="order-container">
+                    <div class="order-details">
+                        <div class="order-date">
+                            <h3>Order Placed :</h3>
+                            <span class="date"><?= date("F j, Y", strtotime($order['orderDate'])) ?></span>
+                        </div>
+                        <div class="order-price">
+                            <h3>Order Total Price :</h3>
+                            <span class="price">&#8377;<?= number_format($order['totalAmountWithShipping'], 2) ?></span>
+                        </div>
+                        <div class="order-id">
+                            <h3>Order ID :</h3>
+                            <span class="id"><?= $order['orderID'] ?></span>
+                        </div>
+                        <a href="order_details.php<?php echo '?orderID=' . $order['orderID']; ?>" class="view-order"><i class='bx bx-shopping-bag'></i> View Order</a>
+                    </div>
 
-        <!-- 1st container -->
-        <div class="order-container">
-            <div class="order-details">
-                <div class="order-date">
-                    <h3>Order Placed :</h3>
-                    <span class="date">January 3</span>
-                </div>
-                <div class="order-price">
-                    <h3>Order Total Price :</h3>
-                    <span class="price">&#8377;5998</span>
-                </div>
-                <div class="order-id">
-                    <h3>Order ID :</h3>
-                    <span class="id">93741387-66d7-11ec-2f73-a79d34e9e3e7</span>
-                </div>
-            </div>
-            <!-- product-1 -->
-            <div class="order-item">
-                <div class="product-image">
-                    <img src="../assets/images/products_bg/Ballet Breeze W.jpg" alt="Ballet Breeze">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Ballet Breeze</div>
-                    <div class="product-size-quantity-container">
-                        <span>Size : UK 10</span>
-                        <span>Quantity : 1</span>
-                        <div class="product-price">
-                            &#8377;2999
+                    <!-- Order Items -->
+                    <?php foreach ($order['items'] as $item): ?>
+                        <div class="order-item">
+                            <div class="product-image">
+                                <img src="../assets/images/products_bg/<?= $item['product_image'] ?>" alt="<?= $item['name'] ?>">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name"><?= $item['name'] ?></div>
+                                <div class="product-category">
+                                    <span>Category: </span>
+                                    <span class="<?php echo htmlspecialchars($item['category']); ?>">
+                                        <?php echo htmlspecialchars($item['category']); ?>
+                                    </span>
+                                </div>
+                                <div class="product-size-quantity-container">
+                                    <span>Size : <?= $item['size'] ?></span>
+                                    <span>Quantity : <?= $item['quantity'] ?></span>
+                                </div>
+                            </div>
+                            <div class="product-links">
+                                <button class="buy-again">
+                                    <img src="../assets/images/icons/buy-again.png" alt="buy-again"> Buy It Again
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="product-links">
-                    <button class="buy-again"><img src="../assets/images/icons/buy-again.png" alt="buy-again"> Buy It Again</button>
-                    <button class="track">Track order</button>
-                </div>
-            </div>
-            <!-- product 2 -->
-            <div class="order-item">
-                <div class="product-image">
-                    <img src="../assets/images/products_bg/SkyWave Kicks K.jpg" alt="SkyWave Kicks">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">SkyWave Kicks</div>
-                    <div class="product-size-quantity-container">
-                        <span>Size : UK 10</span>
-                        <span>Quantity : 1</span>
-                        <div class="product-price">
-                            &#8377;3999
-                        </div>
-                    </div>
-                </div>
-                <div class="product-links">
-                    <button class="buy-again"><img src="../assets/images/icons/buy-again.png" alt="buy-again"> Buy It Again</button>
-                    <button class="track">Track order</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2nd container -->
-        <div class="order-container">
-            <div class="order-details">
-                <div class="order-date">
-                    <h3>Order Placed :</h3>
-                    <span class="date">January 3</span>
-                </div>
-                <div class="order-price">
-                    <h3>Order Total Price :</h3>
-                    <span class="date">&#8377;2599</span>
-                </div>
-                <div class="order-id">
-                    <h3>Order ID :</h3>
-                    <span class="date">a4f8e363-0481-ab8f-606e-befa52e27027</span>
-                </div>
-            </div>
-            <!-- product-1 -->
-            <div class="order-item">
-                <div class="product-image">
-                    <img src="../assets/images/products_bg/Skyline Sprint M.jpg" alt="Skyline Sprint">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Skyline Sprint</div>
-                    <div class="product-size-quantity-container">
-                        <span>Size : UK 10</span>
-                        <span>Quantity : 1</span>
-                        <div class="product-price">
-                            &#8377;2599
-                        </div>
-                    </div>
-                </div>
-                <div class="product-links">
-                    <button class="buy-again"><img src="../assets/images/icons/buy-again.png" alt="buy-again"> Buy It Again</button>
-                    <button class="track">Track order</button>
-                </div>
-            </div>
-        </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
     <!------------------- Links for script ---------------->

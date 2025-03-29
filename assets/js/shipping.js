@@ -45,7 +45,10 @@ function changingShippingValue() {
             // Get the selected shipping price
             const shippingCost = parseFloat(selectedOption.getAttribute("data-price")) || 0;
 
-            // Update the shipping cost
+            // Store shipping cost in localStorage
+            localStorage.setItem("selectedShippingCost", shippingCost);
+
+            // Update the shipping cost in UI
             shippingCostElement.innerHTML = `&#8377;${shippingCost.toFixed(2)}`;
 
             // Update the total amount (base total + shipping)
@@ -58,9 +61,20 @@ function changingShippingValue() {
         option.addEventListener("change", updateShippingSelection);
     });
 
+    // Retrieve stored shipping cost from localStorage
+    const storedShippingCost = parseFloat(localStorage.getItem("selectedShippingCost")) || 0;
+
+    // If there's a stored shipping cost, set the corresponding option as checked
+    shippingOptions.forEach(option => {
+        if (parseFloat(option.getAttribute("data-price")) === storedShippingCost) {
+            option.checked = true;
+        }
+    });
+
     // Run on page load to set the initial state
     updateShippingSelection();
 }
+
 
 
 
@@ -89,6 +103,8 @@ function redirectToPaymentPage() {
         }
     });
 }
+
+
 
 
 

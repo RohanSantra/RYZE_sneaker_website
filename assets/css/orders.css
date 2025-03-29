@@ -37,6 +37,27 @@
     font-weight: 500;
 }
 
+.view-order{
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #8EC5FC;
+    text-transform: uppercase;
+    font-size: 0.9rem; 
+    padding: 10px 0px; 
+    width: 150px;
+    border-radius: 5px;
+    border: 2px solid #8EC5FC;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+.view-order:hover{
+    color: #8EC5FC;
+    background-color: #ffffff;
+}
+
 /* Order Item */
 .order-item {
     border-top: 2px solid #242C2C;
@@ -76,6 +97,18 @@
     color: #242C2C;
 }
 
+.Men {
+    color: #3A8D99;
+}
+
+.Women {
+    color: #F76C6C;
+}
+
+.Kids {
+    color: #F8C24A;
+}
+
 .product-size-quantity-container {
     display: flex;
     flex-direction: column;
@@ -84,6 +117,8 @@
     font-size: 0.95rem;
     font-weight: 500;
 }
+
+
 
 /* Product Links */
 .product-links {
@@ -99,13 +134,15 @@
     align-items: center;
     gap: 5px;
 }
-.buy-again, .track {
+.buy-again{
     font-weight: 600;
     color: #ffffff;
     background-color: #242C2C;
     text-transform: uppercase;
     font-size: 0.9rem; 
-    padding: 10px 20px; 
+    padding: 10px 0px; 
+    width: 150px;
+    text-align: center;
     border-radius: 5px;
     border: 2px solid #242C2C;
     outline: none;
@@ -114,8 +151,7 @@
 }
 
 /* Hover Effects */
-.buy-again:hover,
-.track:hover {
+.buy-again:hover{
     color: #242C2C;
     background-color: white;
 }
@@ -130,7 +166,7 @@
 }
 
 /* Add subtle responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .order-details {
         flex-direction: column;
         align-items: flex-start;
@@ -139,6 +175,7 @@
     .order-item {
         flex-wrap: wrap;
     }
+
 
     .product-name {
         font-size: 1.2rem;
@@ -154,9 +191,8 @@
         align-items: center;
         justify-content: center;
     }
-    .buy-again,
-    .track {
-        width: 100%;
+    .buy-again{
+        width: 100%;    
         font-size: 0.85rem;
     }
 }
