@@ -1,18 +1,56 @@
-project/
-│
+Ryze sneaker project files /
+
 ├── assets/                  # For static files
-│   ├── css/                 # Stylesheets
-│   ├── js/                  # JavaScript files
+|   ├── css/                 # Stylesheets
+│       ├── About.css
+│       ├── checkout_header.css
+│       ├── Contact.css
+│       ├── Edit-profile.css
+│       ├── FAQ.css
+│       ├── footer.css
+│       ├── header.css
+│       ├── hero.css
+│       ├── home.css
+│       ├── Login_signin.css
+│       ├── order_details.css
+│       ├── orders.css
+│       ├── payment_section.css
+│       ├── payment.css
+│       ├── policies.css
+│       ├── product.css
+│       ├── products.css
+│       ├── profile.css
+│       ├── shipping.css
+│       ├── Shopping_cart.css
+│
+|   ├── js/                  # JavaScript files
+│        ├── About.js
+│       ├── Edit-profile.js
+│       ├── FAQ.js
+│       ├── header.js
+│       ├── hero.js
+│       ├── Login_signin.js
+│       ├── payment_options.js
+│       ├── product.js
+│       ├── products.js
+│       ├── shipping.js
+│       ├── shopping_cart.js
+│       ├── utility.js
+│
 │   ├── images/              # Images and media
 │   ├── fonts/               # Fonts
 │
 ├── includes/                # Reusable PHP includes
-│   ├── header.php           # Common header
-│   ├── footer.php           # Common footer
-│   ├── navbar.php           # Navigation bar
-│   ├── config.php           # Database configuration
-│   └── functions.php        # Helper functions
-│
+│       ├── checkout_header.php
+│       ├── config.php
+│       ├── fetch_products.php
+│       ├── footer.php
+│       ├── getUserID.php
+│       ├── header.php
+│       ├── init.php
+│       ├── payment_section.php
+│       ├── register.php
+│/*Not completed */
 ├── admin/                   # Admin panel
 │   ├── css/                 # Admin-specific styles
 │   ├── js/                  # Admin-specific JavaScript
@@ -30,24 +68,32 @@ project/
 │   ├── admin/
 │   │   └── manage.php       # Admin actions API
 │   └── data.php             # Data fetching APIs
-│
+|
+│/*Not completed */
 ├── database/                # Database-related files
 │   ├── schema.sql           # Database schema
 │   ├── seed.sql             # Seed data
 │   └── migrations/          # Database migration scripts
 │
-├── public/                  # Publicly accessible files
-│   ├── index.php            # Main entry point
-│   ├── about.php            # About page
-│   ├── contact.php          # Contact page
-│   ├── products.php         # Product listing
-│   └── checkout/            # Checkout-related pages
-│       ├── payment.php
-│       ├── shipping.php
-│       └── success.php
+├── public/
+│   ├── checkout/
+│   │   ├── Checkout.php
+│   │   ├── Payment.php
+│   │   ├── Shipping.php
+│   ├── About.php
+│   ├── Contact.php
+│   ├── Edit-profile.php
+│   ├── FAQ.php
+│   ├── Login_Signup.php
+│   ├── order_details.php
+│   ├── orders.php
+│   ├── Policies.php
+│   ├── Product.php
+│   ├── Products.php
+│   ├── profile.php
+│   ├── Ryze.php
+|
 │
-├── vendor/                  # Composer dependencies (if using)
-│
-├── tests/                   # Unit and integration tests
+├── File structure.txt
 │
 └── README.md                # Project documentation
