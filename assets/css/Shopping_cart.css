@@ -224,10 +224,15 @@ input[type=number] {
     display: none;
 }
 
+.main-shop-btn{
+    margin-top: 20px;
+
+}
+
 .shop-btn {
     background-color: #2A9D8F;
     width: fit-content;
-    padding: 5px 10px;
+    padding: 10px 20px;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;

@@ -30,6 +30,7 @@ Ryze sneaker project files /
 │       ├── header.js
 │       ├── hero.js
 │       ├── Login_signin.js
+│       ├── order.js
 │       ├── payment_options.js
 │       ├── product.js
 │       ├── products.js

@@ -135,7 +135,7 @@ if ($cartID) {
                         <?php endforeach; ?>
                     <?php else : ?>
                         <p>Your cart is empty.</p>
-                        <a href="../Products.php" class="shop-btn">Shop now</a>
+                        <a href="../Products.php" class="shop-btn main-shop-btn">Shop now</a>
                     <?php endif; ?>
                 </div>
             </div>

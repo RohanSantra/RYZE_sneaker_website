@@ -23,7 +23,7 @@ export const fetchCategoryData = () => {
             .then(response => response.text())
             .then(data => {
                 document.querySelector('.products-container').innerHTML = data;
-                navigateToProductPage();
+                navigateToProductPage(".product");
                 quantityData(".product");
                 addToCart(".product");
             })

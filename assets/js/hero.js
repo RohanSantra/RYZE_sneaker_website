@@ -131,7 +131,13 @@ function redirectionTOProductWithCategory() {
 // }
 
 
-
+function redirectToAboutPage(){
+    document.querySelectorAll('.read-more').forEach(read=>{
+        read.addEventListener('click',()=>{
+            window.location.href='./About.php';
+        })
+    })
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -143,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     quantityData(".product");
     navigateToProductPage(".product");
     addToCart(".product");
+    redirectToAboutPage();
 });
 
 

@@ -229,7 +229,7 @@ include("../includes/config.php");
                 </div>
                 <h2>5 Ways to Elevate Your Style</h2>
                 <p>Discover top trends and styling tips that will make you stand out...</p>
-                <a href="Blog.html" class="read-more">Read More</a>
+                <a href="About.php" class="read-more">Read More</a>
             </div>
             <div class="blog-post">
                 <div class="blog-img">
@@ -237,7 +237,7 @@ include("../includes/config.php");
                 </div>
                 <h2>RYZE Community Stories</h2>
                 <p>Get inspired by stories from the RYZE community...</p>
-                <a href="Blog.html" class="read-more">Read More</a>
+                <a href="About.php" class="read-more">Read More</a>
             </div>
             <div class="blog-post">
                 <div class="blog-img">
@@ -245,7 +245,7 @@ include("../includes/config.php");
                 </div>
                 <h2>Mastering Work-Life Balance</h2>
                 <p>Tips and tricks to balance your career and personal life seamlessly...</p>
-                <a href="Blog.html" class="read-more">Read More</a>
+                <a href="About.php" class="read-more">Read More</a>
             </div>
             <div class="blog-post">
                 <div class="blog-img">
@@ -253,7 +253,7 @@ include("../includes/config.php");
                 </div>
                 <h2>Building Confidence Every Day</h2>
                 <p>Learn how to cultivate confidence through small daily actions...</p>
-                <a href="Blog.html" class="read-more">Read More</a>
+                <a href="About.php" class="read-more">Read More</a>
             </div>
         </div>
     </section>

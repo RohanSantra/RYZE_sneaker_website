@@ -94,10 +94,12 @@ function redirectToShippingPage() {
 }
 
 function redirectToproductsPage(){
-    const shopButton=document.querySelector(".shop-btn");
-    shopButton.addEventListener('click',()=>{
-        window.location.href='../Products.php';
-    })
+    const shopButton=document.querySelectorAll(".shop-btn");
+    shopButton.forEach(shop => {
+        shop.addEventListener('click',()=>{
+            window.location.href='../Products.php';
+    });
+    });
 }
 
 

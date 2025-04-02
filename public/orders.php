@@ -119,8 +119,9 @@ $stmt->close();
                                 </div>
                             </div>
                             <div class="product-links">
-                                <button class="buy-again">
-                                    <img src="../assets/images/icons/buy-again.png" alt="buy-again"> Buy It Again
+                                <button class="buy-again" data-product-id="<?php echo $item['productID']; ?>" data-product-size="<?php echo $item['size']; ?>" 
+                                    data-product-quantity="<?php echo $item['quantity']; ?>">
+                                    <img src="../assets/images/icons/buy-again.png"  alt="buy-again"> Buy It Again
                                 </button>
                             </div>
                         </div>
@@ -132,6 +133,7 @@ $stmt->close();
 
     <!------------------- Links for script ---------------->
     <script type="module" src="../assets/js/header.js?v=<?= $version ?>"></script>
+    <script type="module" src="../assets/js/order.js?v=<?= $version ?>"></script>
 </body>
 
 </html>
